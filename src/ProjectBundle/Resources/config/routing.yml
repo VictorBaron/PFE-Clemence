@@ -1,0 +1,7 @@
+index:
+    path:     /project_homepage
+    defaults: { _controller: ProjectBundle:Default:index }
+
+create_project:
+    path:    /create_project
+    defaults: { _controller: ProjectBundle:CreateProject:create_project }
