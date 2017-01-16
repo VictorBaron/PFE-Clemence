@@ -77,7 +77,6 @@ fos_user:
 kms_froala_editor:
     language: "fr"
     toolbarInline: false
-    tableColors: [ "#FFFFFF", "#FF0000" ]
     includeCSS: true
     includeJS: true
     includeFontAwesome: true

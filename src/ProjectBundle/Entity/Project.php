@@ -45,19 +45,20 @@ class Project
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=255)
+     * @ORM\Column(name="content", type="text")
      */
     private $content;
 
    /**
    * @ORM\Column(name="published", type="boolean")
    */
-    private $published = true;
+    private $published =true;
 
     public function __construct()
     {
         // Par défaut, la date de l'annonce est la date d'aujourd'hui
         $this->date = new \Datetime();
+        
     }
 
     /**
