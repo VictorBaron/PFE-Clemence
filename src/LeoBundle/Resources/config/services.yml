@@ -1,0 +1,4 @@
+services:
+#    leo.example:
+#        class: LeoBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

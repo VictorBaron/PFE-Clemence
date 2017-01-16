@@ -1,4 +1,4 @@
-index:
+project_homepage:
     path:     /project_homepage
     defaults: { _controller: ProjectBundle:Default:index }
 
