@@ -1,0 +1,7 @@
+index:
+    path:     /index
+    defaults: { _controller: LeoBundle:Default:index }
+
+pdftest:
+    path:     /pdftest
+    defaults: { _controller: LeoBundle:Default:pdftest }
