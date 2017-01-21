@@ -81,3 +81,4 @@ kms_froala_editor:
     includeCSS: true
     includeJS: true
     includeFontAwesome: true
+    pluginsDisabled: [ "save", "fullscreen" ]

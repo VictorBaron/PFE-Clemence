@@ -12,8 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use ProjectBundle\Entity\Project;
+use FOS\UserBundle;
 use KMS\FroalaEditorBundle\Form\Type\FroalaEditorType;
-
 use KMS\FroalaEditorBundle\Twig\FroalaExtension;
 
 class CreateProjectController extends Controller
@@ -25,8 +25,9 @@ class CreateProjectController extends Controller
     {
         // On crée un objet Advert, et on l'initialise.
     $project = new Project();
+    $id = $project->getId();
     $user = $this->getUser();
-    /*if (!is_object($user) || !$user instanceof UserInterface) {
+   /* if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }*/
     $project->setAuthor($user);
@@ -38,7 +39,8 @@ class CreateProjectController extends Controller
     // On ajoute les champs de l'entité que l'on veut à notre formulaire
     $formBuilder
       ->add('title',     TextType::class)
-      ->add( 'content', FroalaEditorType::class) 
+      ->add('content', FroalaEditorType::class)
+      ->add('save',      SubmitType::class)
     ;
 
     // À partir du formBuilder, on génère le formulaire
@@ -52,13 +54,26 @@ class CreateProjectController extends Controller
 
     // Étape 2 : On « flush » tout ce qui a été persisté avant
     $em->flush();
-
-    // Reste de la méthode qu'on avait déjà écrit
+    echo $id;
     if ($request->isMethod('POST')) {
-      $request->getSession()->getFlashBag()->add('notice', 'Projet bien enregistré.');
+      // On fait le lien Requête <-> Formulaire
+      // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
+      $form->handleRequest($request);
 
-      // Puis on redirige vers la page de visualisation de cettte annonce
-      return $this->redirectToRoute('view_project', array('id' => $project->getId()));
+      // On vérifie que les valeurs entrées sont correctes
+      // (Nous verrons la validation des objets en détail dans le prochain chapitre)
+      if ($form->isValid()) {
+        // On enregistre notre objet $advert dans la base de données, par exemple
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($project);
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('notice', '¨Projet bien enregistré.');
+        
+        // On redirige vers la page de visualisation de l'annonce nouvellement créée
+        return $this->redirectToRoute('view_project', array('id' => $project->getId()));
+      }
     }
 
     // On passe la méthode createView() du formulaire à la vue
@@ -96,6 +111,38 @@ class CreateProjectController extends Controller
     return $this->render('ProjectBundle:Project:delete.html.twig', array(
       'project' => $project,
       'form'   => $form->createView(),
+    ));
+  }
+
+  public function save_projectAction(Request $request, $project)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $id = $project->getId();
+
+    $projectInBDD = $em->getRepository('ProjectBundle:Project')->find($id);
+
+    if (null === $projectInBDD) {
+      throw new NotFoundHttpException("Le projet d'id ".$id." n'existe pas.");
+    }
+
+    $em = $this->getDoctrine()->getManager();
+    //$content=$request->getContent();
+    $projectInBDD = $project;
+    $em->persist($project);
+    $em->flush();
+
+  }
+
+  public function view_projectAction($id)
+  {
+
+
+
+    $em=$this->getDoctrine()->getManager();
+    $project=$em->getRepository('ProjectBundle:Project')->find($id);
+
+    return $this->render('ProjectBundle:Project:view_project.html.twig', array(
+      'project' => $project,
     ));
   }
 }

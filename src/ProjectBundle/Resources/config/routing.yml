@@ -5,3 +5,20 @@ project_homepage:
 create_project:
     path:    /create_project
     defaults: { _controller: ProjectBundle:CreateProject:create_project }
+
+save:
+  path:     /create_project/save
+  defaults: { _controller: ProjectBundle:CreateProject:save_project }
+
+view_project:
+  path:    /view_project/{id}
+  defaults: { _controller: ProjectBundle:CreateProject:view_project }
+  requirements:
+        id: \d+
+
+delete:
+    path:      /delete/{id}
+    defaults:
+        _controller: ProjectBundle:Project:delete
+    requirements:
+        id: \d+
