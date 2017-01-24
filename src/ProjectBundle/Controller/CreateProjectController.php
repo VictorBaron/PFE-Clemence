@@ -112,6 +112,10 @@ class CreateProjectController extends Controller
     ));
   }
 
+
+  /**
+     * @Route("/edit/{id}", name="edit_project")
+     */
   public function editAction($id, Request $request)
   {
     $em = $this->getDoctrine()->getManager();
