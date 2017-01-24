@@ -3,6 +3,7 @@
 namespace ProjectBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Project
@@ -25,6 +26,7 @@ class Project
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Assert\DateTime()
      */
     private $date;
 
@@ -32,6 +34,7 @@ class Project
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\Length(min=5, minMessage="Le titre doit faire au moins {{ limit }} caractères.")
      */
     private $title;
 
@@ -41,6 +44,13 @@ class Project
      * @ORM\Column(name="author", type="string", length=255)
      */
     private $author;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="authorID", type="integer")
+     */
+    private $authorID;
 
     /**
      * @var string
@@ -54,11 +64,37 @@ class Project
    */
     private $published =true;
 
+    /**
+    * @var int
+     *
+   * @ORM\Column(name="sommeDemandee", type="integer")
+   * @Assert\Range(min=100, max=10000, minMessage="La somme demandée doit être supérieure à {{ limit }}.",  maxMessage="La somme demandée doit être inférieure à {{ limit }}.")
+   */
+    private $sommeDemandee;
+
+    /**
+    * @var int
+     *
+   * @ORM\Column(name="sommeRecue", type="integer")
+   */
+    private $sommeRecue;
+
+     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateFin", type="datetime")
+     * @Assert\DateTime()
+     * @Assert\GreaterThan("today")
+     */
+    private $dateFin;
+
     public function __construct()
     {
         // Par défaut, la date de l'annonce est la date d'aujourd'hui
         $this->date = new \Datetime();
-        
+        $this->sommeDemandee =0;
+        $this->dateFin = new \Datetime();
+        $this->sommeRecue =0;
     }
 
     /**
@@ -144,6 +180,31 @@ class Project
     }
 
     /**
+     * Set authorID
+     *
+     * @param int $authorID
+     *
+     * @return Project
+     */
+    public function setAuthorID($authorID)
+    {
+        $this->authorID = $authorID;
+
+        return $this;
+    }
+
+    /**
+     * Get authorID
+     *
+     * @return int
+     */
+    public function getAuthorID()
+    {
+        return $this->authorID;
+    }
+
+
+    /**
      * Set content
      *
      * @param string $content
@@ -189,5 +250,77 @@ class Project
     public function getPublished()
     {
         return $this->published;
+    }
+
+    /**
+     * Set sommeDemandee
+     *
+     * @param integer $sommeDemandee
+     *
+     * @return Project
+     */
+    public function setSommeDemandee($sommeDemandee)
+    {
+        $this->sommeDemandee = $sommeDemandee;
+
+        return $this;
+    }
+
+    /**
+     * Get sommeDemandee
+     *
+     * @return integer
+     */
+    public function getSommeDemandee()
+    {
+        return $this->sommeDemandee;
+    }
+
+    /**
+     * Set sommeRecue
+     *
+     * @param integer $sommeRecue
+     *
+     * @return Project
+     */
+    public function setSommeRecue($sommeRecue)
+    {
+        $this->sommeRecue = $sommeRecue;
+
+        return $this;
+    }
+
+    /**
+     * Get sommeRecue
+     *
+     * @return integer
+     */
+    public function getSommeRecue()
+    {
+        return $this->sommeRecue;
+    }
+
+    /**
+     * Set dateFin
+     *
+     * @param \DateTime $dateFin
+     *
+     * @return Project
+     */
+    public function setDateFin($dateFin)
+    {
+        $this->dateFin = $dateFin;
+
+        return $this;
+    }
+
+    /**
+     * Get dateFin
+     *
+     * @return \DateTime
+     */
+    public function getDateFin()
+    {
+        return $this->dateFin;
     }
 }
