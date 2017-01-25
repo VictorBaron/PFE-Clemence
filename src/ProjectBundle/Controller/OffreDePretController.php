@@ -14,7 +14,7 @@ use KMS\FroalaEditorBundle\Twig\FroalaExtension;
 
 class OffreDePretController extends Controller
 {
-	public function offreDePretAction($id, Request $request) {
+	public function offre_de_pretAction(Request $request, $id) {
 		$offreDePret = new OffreDePret;
 		$user=$this->getUser();
 		$offreDePret->setLender($user->getId());

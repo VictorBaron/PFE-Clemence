@@ -33,6 +33,6 @@ myprojects:
 lend_to_project:
   path:     /lend_to_project
   defaults:
-       { _controller: ProjectBundle:OffreDePret:offreDePret }
-    requirements:
+       { _controller: ProjectBundle:OffreDePret:offre_de_pret }
+  requirements:
         id: \d+
