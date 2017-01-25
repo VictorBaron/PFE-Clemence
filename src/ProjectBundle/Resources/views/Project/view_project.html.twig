@@ -1,1 +1,14 @@
+<h2>{{ project.title }}</h2>
+
 {{project.content|raw}}
+
+
+{% if proprietaire %}
+	Pour l'instant, vous avez réussi à récolter {{project.sommeRecue}}€.
+	</br>Date butoir, le {{ project.dateFin|date('Y-m-d') }}
+{% else %}
+	{{project.author}} demande pour son projet {{project.sommeDemandee}}€.
+	</br>Pour l'instant, {{project.author}} a réussi à récolter {{project.sommeRecue}}.
+	</br>Date butoir, le {{ project.dateFin|date('Y-m-d') }}
+	<input type="button" display=inline onclick="location.href='{{ path('lend_to_project', {'id': project.id}) }}';" value="Financer ce projet" />
+{% endif %}

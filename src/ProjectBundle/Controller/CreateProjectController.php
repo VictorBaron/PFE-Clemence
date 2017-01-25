@@ -3,12 +3,6 @@
 namespace ProjectBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use ProjectBundle\Entity\Project;
@@ -95,8 +89,16 @@ class CreateProjectController extends Controller
     $em=$this->getDoctrine()->getManager();
     $project=$em->getRepository('ProjectBundle:Project')->find($id);
 
+    //Savoir si c'est le propriétaire qui regarde son annonce ou pas
+    $user=$this->getUser();
+    $proprietaire=false;
+    if($user->getId()==$project->getAuthorId()) {
+      $proprietaire=true;
+    }
+
     return $this->render('ProjectBundle:Project:view_project.html.twig', array(
       'project' => $project,
+      'proprietaire' => $proprietaire,
     ));
   }
 

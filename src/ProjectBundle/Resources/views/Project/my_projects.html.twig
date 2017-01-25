@@ -6,7 +6,9 @@
     </br> Ce projet se termine le {{ project.dateFin|date('Y-m-d') }}
     </br> Somme demandée : {{ project.sommeDemandee }}€
     </br> Somme reçue : {{ project.sommeRecue }}€
-    </br><a href="{{ path('edit_project', {'id': project.id}) }}">Editer</a>   <a href="{{ path('view_project', {'id': project.id}) }}">Voir le projet</a>
+    </br><input type="button" display=inline onclick="location.href='{{ path('edit_project', {'id': project.id}) }}';" value="Editer" />
+    <input type="button" display=inline onclick="location.href='{{ path('view_project', {'id': project.id}) }}';" value="Aperçu du projet" />
+    <input type="button" display=inline onclick="location.href='{{ path('delete_project', {'id': project.id}) }}';" value="Supprimer" />
     </li>
   {% endfor %}
 </ul>

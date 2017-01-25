@@ -19,7 +19,7 @@ view_project:
   requirements:
         id: \d+
 
-delete:
+delete_project:
     path:      /delete/{id}
     defaults:
        { _controller: ProjectBundle:CreateProject:delete }
@@ -29,3 +29,10 @@ delete:
 myprojects:
   path:    /my_projects
   defaults: {   _controller: ProjectBundle:CreateProject:my_projects  }
+
+lend_to_project:
+  path:     /lend_to_project
+  defaults:
+       { _controller: ProjectBundle:OffreDePret:offreDePret }
+    requirements:
+        id: \d+
