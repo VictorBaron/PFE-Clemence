@@ -72,7 +72,7 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
             <li class="active"><a href="/">Accueil</a></li>
             <li><a href="/login">Connexion</a></li>
             <li><a href="/profile/project_homepage">Projets</a></li>
-            <li><a href="">A propos</a></li>
+            <li><a href="/Nous">Qui sommes-nous ?</a></li>
             <li><a href="">Contact</a></li>
         </ul>
         <!--A dé-commenter lorsqu'on aura des réseaux sociaux
@@ -89,7 +89,7 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 <!-- Header -->
 <header id="fh5co-header" role="banner">
     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>
-    <!--<div id="fh5co-logo" class="text-center"><a href="index.html"><img src="images/logo.png" alt="Image"></a></div>-->
+    <div id="fh5co-logo" class="text-center"><a href="/"><img src="{{ asset('images/logoclem.png') }}" alt="Image"></a></div>
 </header>
 <!-- Header -->
 
@@ -117,19 +117,9 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 <!--Contenu de la page dont il est question à placer dans le block Contenu-->
 {% endblock %}
 
-<!-- Call to action -->
-<div class="fh5co-call-to-action" style="background-image: url(images/img_wide_1.jpg); background-position: center center;">
-    <div class="fh5co-overlay"></div>
-    <div class="container">
-        <div class="fh5co-call-to-action-wrap">
-            <div class="fh5co-call-to-action-inner text-center">
-                <h3 class="fh5co-call-to-action-text">Laissez-nous vous aider.</h3>
-                <a href="#" class="btn btn-primary btn-lg">C'est parti !</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Call to action -->
+{% block appelauxarmes %}
+<!--Un appel aux armes pour la page d'accueil-->
+{% endblock %}
 
 <!-- Footer -->
 <footer role="contentinfo">
