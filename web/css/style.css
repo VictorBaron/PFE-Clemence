@@ -6,7 +6,7 @@
   font-style: normal;
 }
 body {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   line-height: 24px;
   color: #2e2e2e;
@@ -200,10 +200,10 @@ ul ul, ul ol, ol ul, ol ol {
 #fh5co-hero .fh5co-hero-text-wrap .fh5co-hero-text p {
   font-size: 30px;
   line-height: 42px;
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
 }
 #fh5co-hero .fh5co-hero-text-wrap .fh5co-hero-text p em {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-style: italic;
 }
 #fh5co-hero .fh5co-bg-overlay {
@@ -248,7 +248,7 @@ main[role="main"], #fh5co-blog {
 }
 
 .fh5co-em {
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
 
@@ -264,7 +264,7 @@ main[role="main"], #fh5co-blog {
 }
 .fh5co-section-heading > h3 {
   color: #062430;
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 30px;
   line-height: 42px;
   width: 70%;
@@ -1242,7 +1242,7 @@ Components
 .fh5co-call-to-action .fh5co-call-to-action-text {
   font-size: 50px;
   line-height: 60px;
-  font-family: "Playfair Display", serif;
+  font-family: "Montserrat", sans-serif;
 }
 .fh5co-call-to-action > .fh5co-overlay {
   left: 0;
