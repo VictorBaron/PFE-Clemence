@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class Accueil extends Controller
 {
     /**
-     * @Route("/Accueil")
+     * @Route("/")
      */
     public function showAction()
     {
