@@ -1,12 +1,3 @@
-<!--
-//////////////////////////////////////////////////////
-
-FREE HTML5 TEMPLATE
-DESIGNED & DEVELOPED by FREEHTML5.CO
-
-//////////////////////////////////////////////////////
- -->
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -69,18 +60,19 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
     <div class="fh5co-nav-overlay"></div>
     <div class="fh5co-nav-inner">
         <ul id="fh5co-main-nav">
-            <li class="active"><a href="">Connexion</a></li>
-            <li><a href="">Accueil</a></li>
-            <li><a href="">Projets</a></li>
-            <li><a href="">A propos</a></li>
+            <li class="active"><a href="/">Accueil</a></li>
+            <li><a href="/login">Connexion</a></li>
+            <li><a href="/profile/project_homepage">Projets</a></li>
+            <li><a href="/Nous">Qui sommes-nous ?</a></li>
             <li><a href="">Contact</a></li>
         </ul>
+        <!--A dé-commenter lorsqu'on aura des réseaux sociaux
         <ul class="fh5co-social">
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
             <li><a href="#"><i class="fa fa-instagram"></i></a></li>
             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-        </ul>
+        </ul>-->
     </div>
 </div>
 <!-- Navigation -->
@@ -88,7 +80,7 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 <!-- Header -->
 <header id="fh5co-header" role="banner">
     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>
-    <div id="fh5co-logo" class="text-center"><!--<a href="index.html">--><img src="images/logo.png" alt="Image"><!--</a>--></div>
+    <div id="fh5co-logo" class="text-center"><a href="/"><img src="{{ asset('images/logoclem.png') }}" alt="Image"></a></div>
 </header>
 <!-- Header -->
 
@@ -102,8 +94,8 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
                 <p>Empruntez et prêtez à votre communauté. <br><!--<em>by</em> <a href="" target="_blank">FREEHTML5.co</a></p>-->
                 <br class="fh5co-spacer fh5co-spacer-sm">
                 <p>
-                    <a href="#" class="btn btn-primary fh5co-hero-btn">Connexion</a>
-                    <a href="#" class="btn btn-outline fh5co-hero-btn">Inscription</a>
+                    <a href="/login" class="btn btn-primary fh5co-hero-btn">Connexion</a>
+                    <a href="/register" class="btn btn-outline fh5co-hero-btn">Inscription</a>
 
                 </p>
             </div>
@@ -112,150 +104,17 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 </aside>
 <!-- Hero -->
 
-<!-- Main -->
-<main role="main">
+{% block contenu %}
+<!--Contenu de la page dont il est question à placer dans le block Contenu-->
+{% endblock %}
 
-    <!-- Latest Project -->
-    <div id="fh5co-latest-project">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <figure>
-                        <img src="images/img_2.jpg" alt="Image" class="img-responsive">
-                    </figure>
-                </div>
-                <div class="col-md-3 col-md-push-1">
-                    <section>
-                        <h5 class="text-muted text-uppercase fh5co-no-margin-bottom fh5co-letter-space">Titre contenu page d'accueil</h5>
-                        <br class="fh5co-spacer fh5co-spacer-xxs">
-                        <h2 class="fh5co-heading-with-border"><span class="fh5co-border"></span>Une jeune pousse de la fintech lève 500 MILLIARDS MAGGLE</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa doloribus molestias, explicabo itaque, quos consequatur quam, tempore enim voluptatum nulla quas iusto voluptate quae modi commodi maiores voluptatibus perspiciatis aut! Lorem ipsum.</p>
+{% block appelauxarmes %}
+<!--Un appel aux armes pour la page d'accueil-->
+{% endblock %}
 
-                        <p><a href="#" class="fh5co-link"><i class="fa fa-angle-right"></i> Voir les projets publiques</a></p>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Latest Project -->
-    <hr class="fh5co-spacer fh5co-spacer-sm">
-    <!-- Crew -->
-    <!--<div id="fh5co-crew">
-        <div class="container">
-            <div class="fh5co-section-heading">
-                <h2>Our Crew</h2>
-                <h3 class="text-center">We are, engineers, thinkers, innovators, intrepreneurs who love doing things that benefits human being. </h3>
-            </div>
-
-            <div class="row">
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figu	re><a href="#"><img src="images/crew_1.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figure><a href="#"><img src="images/crew_2.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figure><a href="#"><img src="images/crew_3.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figure><a href="#"><img src="images/crew_4.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figure><a href="#"><img src="images/crew_5.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figure><a href="#"><img src="images/crew_6.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figure><a href="#"><img src="images/crew_7.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figure><a href="#"><img src="images/crew_8.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figure><a href="#"><img src="images/crew_9.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figure><a href="#"><img src="images/crew_10.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figure><a href="#"><img src="images/crew_11.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-6">
-                    <figure><a href="#"><img src="images/crew_12.jpg" alt="Image" class="img-responsive"></a></figure>
-                </div>
-                <div class="clearfix visible-sm-block"></div>
-            </div>
-        </div>
-    </div>-->
-    <!-- Crew -->
-
-    <!-- Recent Blog -->
-    <!--
-    <div id="fh5co-blog">
-        <div class="container">
-            <div class="fh5co-section-heading">
-                <h2 class="text-muted">Our Journal</h2>
-                <h3 class="text-center">Our fresh &amp; advanced thinking published.</h3>
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <article class="fh5co-post-entry">
-                        <span class="fh5co-blog-date">07.17.2015</span>
-                        <h3 class="fh5co-blog-title fh5co-heading-with-border"><a href="#">Getting Ready for PHP 7</a> <span class="fh5co-border fh5co-border-gray"></span></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui id accusantium quisquam autem. Illo maxime, earum possimus tenetur, impedit veritatis.</p>
-                        <p><a href="#" class="fh5co-link"><i class="fa fa-angle-right"></i> Read More</a></p>
-                    </article>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <article class="fh5co-post-entry">
-                        <span class="fh5co-blog-date">07.17.2015</span>
-                        <h3 class="fh5co-blog-title fh5co-heading-with-border"><a href="#">7 Node.js Tutorials</a> <span class="fh5co-border fh5co-border-gray"></span></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui id accusantium quisquam autem. Illo maxime, earum possimus tenetur, impedit veritatis.</p>
-                        <p><a href="#" class="fh5co-link"><i class="fa fa-angle-right"></i> Read More</a></p>
-                    </article>
-                </div>
-                <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-3 col-sm-6">
-                    <article class="fh5co-post-entry">
-                        <span class="fh5co-blog-date">07.17.2015</span>
-                        <h3 class="fh5co-blog-title fh5co-heading-with-border"><a href="#">Designing Icons for Detailed Product Features</a> <span class="fh5co-border fh5co-border-gray"></span></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui id accusantium quisquam autem. Illo maxime, earum possimus tenetur, impedit veritatis.</p>
-                        <p><a href="#" class="fh5co-link"><i class="fa fa-angle-right"></i> Read More</a></p>
-                    </article>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <article class="fh5co-post-entry">
-                        <span class="fh5co-blog-date">07.17.2015</span>
-                        <h3 class="fh5co-blog-title fh5co-heading-with-border"><a href="#">SVG Advance Techniques</a> <span class="fh5co-border fh5co-border-gray"></span></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui id accusantium quisquam autem. Illo maxime, earum possimus tenetur, impedit veritatis.</p>
-                        <p><a href="#" class="fh5co-link"><i class="fa fa-angle-right"></i> Read More</a></p>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <!-- Recent Blog -->
-
-
-</main>
-<!-- Main -->
-
-<!-- Call to action -->
-<div class="fh5co-call-to-action" style="background-image: url(images/img_wide_1.jpg); background-position: center center;">
-    <div class="fh5co-overlay"></div>
-    <div class="container">
-        <div class="fh5co-call-to-action-wrap">
-            <div class="fh5co-call-to-action-inner text-center">
-                <h3 class="fh5co-call-to-action-text">Laissez-nous vous aider.</h3>
-                <a href="#" class="btn btn-primary btn-lg">C'est parti !</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Call to action -->
+{% block fos_user_content %}
+<!--Pour tout ce qui est login-->
+{% endblock fos_user_content %}
 
 <!-- Footer -->
 <footer role="contentinfo">
@@ -289,14 +148,17 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
                 </ul>
             </div>-->
             <div class="col-md-2">
-                <h2 class="fh5co-footer-title">Connect</h2>
+                <h2 class="fh5co-footer-title">Contact</h2>
                 <ul class="fh5co-footer-links">
+                    <li><a href="#" class="fh5co-link">tel</a> </li>
+                    <li><a href="#" class="fh5co-link">mel</a> </li>
+                    <!--A dé-commenter lorsqu'on aura des réseaux sociaux
                     <li><a href="#" class="fh5co-link"><i class="fa fa-twitter"></i>Twitter</a></li>
                     <li><a href="#" class="fh5co-link"><i class="fa fa-facebook-square"></i>Facebook</a></li>
                     <li><a href="#" class="fh5co-link"><i class="fa fa-github"></i>Github</a></li>
                     <li><a href="#" class="fh5co-link"><i class="fa fa-linkedin-square"></i>LinkedIn</a></li>
                     <li><a href="#" class="fh5co-link"><i class="fa fa-google"></i>Google Plus</a></li>
-                </ul>
+                </ul>-->
             </div>
         </div>
 
@@ -304,12 +166,13 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
             <div class="col-md-12">
                 <div class="fh5co-copyright">
                     <p class="pull-left">&copy;	Clemence 2017. All Rights Reserved. <br> Lovely crafted by SamSam </p>
+                    <!--A dé-commenter lorsqu'on aura des réseaux sociaux
                     <ul class="pull-right fh5co-footer-social">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
+                    </ul>-->
                 </div>
             </div>
         </div>
