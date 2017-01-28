@@ -51,11 +51,14 @@ class OffreDePretController extends Controller
 	}
 
 
-	public function edit_offre_de_pretAction(Request $request, $idOffre) {
+	public function edit_offre_de_pretAction(Request $request, $id) {
 
 		$em = $this->getDoctrine()->getManager();
-		$offreDePret = $em->getRepository('ProjectBundle:OffreDePret')->find($idOffre);
-		$user=$this->getUser();
+		$offreDePret = $em->getRepository('ProjectBundle:OffreDePret')->find($id);
+		if (null === $offreDePret) {
+      		throw new NotFoundHttpException("Cette offre n'existe pas.");
+    	}
+    
 		// On crée le FormBuilder grâce au service form factory
     	$form  = $this->get('form.factory')->create(OffreDePretType::class, $offreDePret);
 
@@ -65,7 +68,7 @@ class OffreDePretController extends Controller
 	        // On enregistre notre objet dans la base de données
 	        $em->flush();
 
-	        //$request->getSession()->getFlashBag()->add('notice', 'Projet financé !');
+	        $request->getSession()->getFlashBag()->add('notice', 'Offre modifiée !');
 	        
 	        // On redirige vers la page pour signer le contrat
 	        //TODO: page de création du pdf
@@ -88,6 +91,20 @@ class OffreDePretController extends Controller
 		return $this->render('ProjectBundle:OffreDePret:viewOffreDePret.html.twig', array(
       		'offre' => $offreDePret,
     		));
+	}
+
+	public function accepter_offreAction(Request $request, $id){
+		$em = $this->getDoctrine()->getManager();
+		$offreDePret = $em->getRepository('ProjectBundle:OffreDePret')->find($idOffre);
+		$project = $offreDePret->getProject();
+
+		//TODO : générer le contrat
+
+		$project->setSommeRecue($project->getSommeRecue()+$offreDePret->getSomme());
+
+
+
+		 return $this->redirectToRoute('view_project', array('id' => $id));
 	}
 
 }

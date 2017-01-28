@@ -1,7 +1,7 @@
 
 
 
-{% block body%}
+{% block contenu %}
 
 	<h2>{{ project.title }}</h2>
 
@@ -11,9 +11,20 @@
 	{% if proprietaire %}
 		Pour l'instant, vous avez réussi à récolter {{project.sommeRecue}}€.
 		</br>Date butoir, le {{ project.dateFin|date('Y-m-d') }}
+			{% for offre in offres %}
+				{{offre.lender.prenom}} {{offre.lender.nom}} propose de vous prêter {{offre.somme}}, à {{offre.interets}}% d'intérêts. Il demande ensuite à être remboursé de {{offre.echeance}} tous les mois à partir du {{offre.dateDebutRemboursement|date('Y-m-d')}}.
+				<input type=button onclick="location.href='{{ path('edit_offre', {'id': offre.id} )}} ';" value="Proposer d'autres conditions" />
+				<input type=button onclick="location.href='{{ path('accepter_offre', {'id': offre.id} )}} ';" value="Accepter ce prêt" />
+			{% endfor %}
+	
 	{% else %}
-		{{project.author}} demande pour son projet {{project.sommeDemandee}}€.
+		{{project.author.username}} demande pour son projet {{project.sommeDemandee}}€.
 		</br>Pour l'instant, {{project.author.username}} a réussi à récolter {{project.sommeRecue}}.
+		{% for offre in offres %}
+			{% if {{offre.acceptedbyBoth}} %}
+				{{offre.lender.prenom}} {{offre.lender.nom}} a déjà prêté {{offre.somme}} à {{project.author.username}} !
+			{% endif %}
+		{% endfor %}
 		</br>Date butoir, le {{ project.dateFin|date('Y-m-d') }}
 		<input type="button" display=inline onclick="location.href='{{ path('lend_to_project', {'id': project.id}) }}';" value="Financer ce projet" />
 	{% endif %}

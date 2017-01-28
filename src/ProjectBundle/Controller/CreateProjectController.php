@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use ProjectBundle\Entity\Project;
+use ProjectBundle\Entity\OffreDePret;
 use ProjectBundle\Form\ProjectType;
 use FOS\UserBundle;
 use KMS\FroalaEditorBundle\Form\Type\FroalaEditorType;
@@ -92,10 +93,14 @@ class CreateProjectController extends Controller
     if($user == $project->getAuthor()) {
       $proprietaire=true;
     }
+    //récupérer toutes les propositions
+    $offres=$em->getRepository('ProjectBundle:OffreDePret')->findByProject($project);
+
 
     return $this->render('ProjectBundle:Project:view_project.html.twig', array(
       'project' => $project,
       'proprietaire' => $proprietaire,
+      'offres' => $offres,
     ));
   }
 
