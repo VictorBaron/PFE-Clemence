@@ -1,0 +1,22 @@
+lend_to_project:
+  path:     /lend_to_project/{id}
+  defaults:
+       { _controller: ProjectBundle:OffreDePret:create_offre_de_pret }
+  requirements:
+        id: \d+
+
+
+edit_offre:
+  path:   /edit_offre
+  defaults:
+       { _controller: ProjectBundle:OffreDePret:edit_offre_de_pret }
+  requirements:
+        id: \d+
+
+
+view_offre:
+  path:    /view_offre
+  defaults:
+       { _controller: ProjectBundle:OffreDePret:view_offre_de_pret }
+  requirements:
+        id: \d+

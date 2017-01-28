@@ -1,6 +1,9 @@
+
+
+
 {% block body %}
 
-  <h2>Création du projet de {{project.author}}</h2>
+  <h2>Création du projet de {{project.author.username}}</h2>
 
   {{ include("ProjectBundle:Project:form.html.twig") }}
     

@@ -4,6 +4,7 @@ namespace ProjectBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Entity\User;
 
 
 /**
@@ -30,9 +31,8 @@ class OffreDePret
     private $project;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="lender", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $lender;
 
@@ -80,19 +80,21 @@ class OffreDePret
      */
     private $acceptedByAsker = false;
 
+
+//TODO: Ajouter les fonctions increaseOffre() et decreaseOffre()
     /**
      * @ORM\PrePersist
      */
-    public function increase()
+    /*public function increase()
     {
-        $this->getProject()->increaseApplication();
+        $this->getProject()->increaseOffre();
     }
     /**
     * @ORM\PreRemove
     */
-    public function decrease()
+    /*public function decrease()
     {
-        $this->getProject()->decreaseApplication();
+        $this->getProject()->decreaseOffre();
     }
 
     /**
@@ -132,11 +134,11 @@ class OffreDePret
     /**
      * Set lender
      *
-     * @param integer $lender
+     * @param User $lender
      *
      * @return OffreDePret
      */
-    public function setLender($lender)
+    public function setLender(User $lender)
     {
         $this->lender = $lender;
 
@@ -146,7 +148,7 @@ class OffreDePret
     /**
      * Get lender
      *
-     * @return int
+     * @return User
      */
     public function getLender()
     {

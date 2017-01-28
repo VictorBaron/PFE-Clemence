@@ -1,0 +1,6 @@
+projects:
+    resource: "@ProjectBundle/Resources/config/routing/project.yml"
+
+offre_pret:
+    resource:  "@ProjectBundle/Resources/config/routing/offre_pret.yml"
+

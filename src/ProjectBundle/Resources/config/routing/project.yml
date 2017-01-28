@@ -26,13 +26,6 @@ delete_project:
     requirements:
         id: \d+
 
-myprojects:
+my_projects:
   path:    /my_projects
   defaults: {   _controller: ProjectBundle:CreateProject:my_projects  }
-
-lend_to_project:
-  path:     /lend_to_project
-  defaults:
-       { _controller: ProjectBundle:OffreDePret:offre_de_pret }
-  requirements:
-        id: \d+

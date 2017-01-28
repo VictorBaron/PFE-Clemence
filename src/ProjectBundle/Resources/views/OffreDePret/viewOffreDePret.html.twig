@@ -1,0 +1,13 @@
+{% if {{userID}}!={{ offre.lender.id}} %}
+
+<h2> {{ offre.lender.username }} vous propose de vous prêter {{offre.somme}}€ !</h2>
+
+Voici ses conditions: 
+
+Il vous demande de le rembourser {{ offre.echeance }} tous les mois à partir du {{ offre.dateDebutRemboursement|date('Y-m-d')}}, avec des intérêts de {{offre.interets}}%.
+Vous pouvez accepter cette offre, ou lui proposer différentes modalités en cliquant sur "Modifier l'offre".
+
+<input type="button" display=inline onclick="location.href='{{ path('view_project', {'id': project.id}) }}';" value="Aperçu du projet" />
+<input type="button" display=inline onclick="location.href='{{ path('delete_project', {'id': project.id}) }}';" value="Supprimer" />
+
+{% endif %}

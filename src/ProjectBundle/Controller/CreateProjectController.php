@@ -18,14 +18,11 @@ class CreateProjectController extends Controller
     {
         // On crée un objet Advert, et on l'initialise.
     $project = new Project();
-    $id = $project->getId();
-    $user = $this->getUser();
-    $userID = $user->getId();
+    $author = $this->getUser();
    /* if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }*/
-    $project->setAuthor($user);
-    $project->setAuthorID($userID);
+    $project->setAuthor($author);
     $project->setContent("Votre projet ici.");
     $project->setTitle('Titre du projet');
     // On crée le FormBuilder grâce au service form factory
@@ -92,7 +89,7 @@ class CreateProjectController extends Controller
     //Savoir si c'est le propriétaire qui regarde son annonce ou pas
     $user=$this->getUser();
     $proprietaire=false;
-    if($user->getId()==$project->getAuthorId()) {
+    if($user == $project->getAuthor()) {
       $proprietaire=true;
     }
 
@@ -105,9 +102,8 @@ class CreateProjectController extends Controller
   public function my_projectsAction(Request $request){
     $em=$this->getDoctrine()->getManager();
     $user=$this->getUser();
-    $userID = $user->getId();
 
-    $listProjects = $em->getRepository('ProjectBundle:Project')->findByAuthorID($userID);
+    $listProjects = $em->getRepository('ProjectBundle:Project')->findByAuthor($user);
 
     return $this->render('ProjectBundle:Project:my_projects.html.twig', array(
       'listProjects' => $listProjects,
@@ -130,7 +126,8 @@ class CreateProjectController extends Controller
     if ($request->isMethod('POST')  && $form->handleRequest($request)->isValid())  {
       $em->flush();
       $request->getSession()->getFlashBag()->add('notice', 'Projet bien modifié.');
-      return $this->redirectToRoute('view_project', array('id' => $project->getId()));
+
+      return $this->redirectToRoute('view_project', array('id' => $id));
     }
     return $this->render('ProjectBundle:Project:create_project.html.twig', array(
       'project' => $project,

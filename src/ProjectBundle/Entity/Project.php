@@ -4,6 +4,8 @@ namespace ProjectBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Entity\User;
+
 
 /**
  * Project
@@ -39,18 +41,11 @@ class Project
     private $title;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $author;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="authorID", type="integer")
-     */
-    private $authorID;
 
     /**
      * @var string
@@ -158,11 +153,11 @@ class Project
     /**
      * Set author
      *
-     * @param string $author
+     * @param User $author
      *
      * @return Project
      */
-    public function setAuthor($author)
+    public function setAuthor(User $author)
     {
         $this->author = $author;
 
@@ -172,35 +167,11 @@ class Project
     /**
      * Get author
      *
-     * @return string
+     * @return User
      */
     public function getAuthor()
     {
         return $this->author;
-    }
-
-    /**
-     * Set authorID
-     *
-     * @param int $authorID
-     *
-     * @return Project
-     */
-    public function setAuthorID($authorID)
-    {
-        $this->authorID = $authorID;
-
-        return $this;
-    }
-
-    /**
-     * Get authorID
-     *
-     * @return int
-     */
-    public function getAuthorID()
-    {
-        return $this->authorID;
     }
 
 

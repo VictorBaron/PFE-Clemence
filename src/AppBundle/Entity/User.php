@@ -45,6 +45,8 @@ class User extends BaseUser
      */
     private $dateDeNaissance;
 
+    
+
     public function __construct()
     {
         parent::__construct();
