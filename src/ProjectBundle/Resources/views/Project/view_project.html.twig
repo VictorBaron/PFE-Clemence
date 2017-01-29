@@ -9,23 +9,39 @@
 
 
 	{% if proprietaire %}
-		Pour l'instant, vous avez réussi à récolter {{project.sommeRecue}}€.
-		</br>Date butoir, le {{ project.dateFin|date('Y-m-d') }}
+		Pour l'instant, vous avez réussi à récolter {{project.sommeRecue}}€ sur les {{project.sommeDemandee}}€.
+		</br>Date butoir, le {{ project.dateFin|date('d-m-Y') }}
+		<ul>
 			{% for offre in offres %}
-				{{offre.lender.prenom}} {{offre.lender.nom}} propose de vous prêter {{offre.somme}}, à {{offre.interets}}% d'intérêts. Il demande ensuite à être remboursé de {{offre.echeance}} tous les mois à partir du {{offre.dateDebutRemboursement|date('Y-m-d')}}.
-				<input type=button onclick="location.href='{{ path('edit_offre', {'id': offre.id} )}} ';" value="Proposer d'autres conditions" />
-				<input type=button onclick="location.href='{{ path('accepter_offre', {'id': offre.id} )}} ';" value="Accepter ce prêt" />
+			<li>
+			{# Les prêts déjà reçus #}
+				{% if offre.acceptedByBoth %}
+				
+					{{offre.lender.prenom}} {{offre.lender.nom}} vous â déjà prêté {{offre.somme}}€, à {{offre.interets}}% d'intérêts le {{ offre.datePret|date('d-m-Y') }} . Vous devrez lui rembourser {{offre.echeance}}€ tous les mois à partir du {{offre.dateDebutRemboursement|date('d-m-Y')}}.
+
+				{# Les propositions de prêts #}
+				{% else %}
+					{{offre.lender.prenom}} {{offre.lender.nom}} propose de vous prêter {{offre.somme}}, à {{offre.interets}}% d'intérêts. Il demande ensuite à être remboursé de {{offre.echeance}}€ tous les mois à partir du {{offre.dateDebutRemboursement|date('d-m-Y')}}.
+					<input type=button onclick="location.href='{{ path('edit_offre', {'id': offre.id} )}} ';" value="Proposer d'autres conditions" />
+					<input type=button onclick="location.href='{{ path('accepter_offre', {'id': offre.id} )}} ';" value="Accepter ce prêt" />
+				{% endif %}
+			</li>
 			{% endfor %}
-	
+		<ul>
 	{% else %}
 		{{project.author.username}} demande pour son projet {{project.sommeDemandee}}€.
 		</br>Pour l'instant, {{project.author.username}} a réussi à récolter {{project.sommeRecue}}.
-		{% for offre in offres %}
-			{% if {{offre.acceptedbyBoth}} %}
-				{{offre.lender.prenom}} {{offre.lender.nom}} a déjà prêté {{offre.somme}} à {{project.author.username}} !
-			{% endif %}
-		{% endfor %}
-		</br>Date butoir, le {{ project.dateFin|date('Y-m-d') }}
+		<ul>
+			{% for offre in offres %}
+			<li>
+			{# Si un prêt a déjà été effectué sur ce projet #}
+				{% if offre.acceptedbyBoth %}
+					{{offre.lender.prenom}} {{offre.lender.nom}} a déjà prêté {{offre.somme}} à {{project.author.username}} !
+				{% endif %}
+			</li>
+			{% endfor %}
+		</ul>
+		</br>Date butoir, le {{ project.dateFin|date('d-m-Y') }}
 		<input type="button" display=inline onclick="location.href='{{ path('lend_to_project', {'id': project.id}) }}';" value="Financer ce projet" />
 	{% endif %}
 

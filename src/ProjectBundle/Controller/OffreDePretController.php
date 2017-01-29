@@ -83,10 +83,10 @@ class OffreDePretController extends Controller
 
 	}
 
-	public function view_offre_de_pretAction(Request $request, $idOffre) {
+	public function view_offre_de_pretAction(Request $request, $id) {
 
 		$em = $this->getDoctrine()->getManager();
-		$offreDePret = $em->getRepository('ProjectBundle:OffreDePret')->find($idOffre);
+		$offreDePret = $em->getRepository('ProjectBundle:OffreDePret')->find($id);
 
 		return $this->render('ProjectBundle:OffreDePret:viewOffreDePret.html.twig', array(
       		'offre' => $offreDePret,
@@ -95,16 +95,17 @@ class OffreDePretController extends Controller
 
 	public function accepter_offreAction(Request $request, $id){
 		$em = $this->getDoctrine()->getManager();
-		$offreDePret = $em->getRepository('ProjectBundle:OffreDePret')->find($idOffre);
+		$offreDePret = $em->getRepository('ProjectBundle:OffreDePret')->find($id);
 		$project = $offreDePret->getProject();
 
 		//TODO : générer le contrat
 
 		$project->setSommeRecue($project->getSommeRecue()+$offreDePret->getSomme());
+		$offreDePret->setAcceptedByBoth(true);
+		$offreDePret->setDatePret(new \Datetime());
+		$em->flush();
 
-
-
-		 return $this->redirectToRoute('view_project', array('id' => $id));
+		 return $this->redirectToRoute('view_project', array('id' => $project->getId() ));
 	}
 
 }

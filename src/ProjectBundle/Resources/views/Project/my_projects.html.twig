@@ -1,9 +1,9 @@
 <h2>Mes projets</h2>
 <ul>
   {% for project in listProjects %}
-    <li> {{ project.title }} 
-    </br> Ce projet a été créé le {{ project.date|date('Y-m-d') }}
-    </br> Ce projet se termine le {{ project.dateFin|date('Y-m-d') }}
+    <li> <b>{{ project.title }} </b>
+    </br> Ce projet a été créé le {{ project.date|date('d-m-Y') }}
+    </br> Ce projet se termine le {{ project.dateFin|date('d-m-Y') }}
     </br> Somme demandée : {{ project.sommeDemandee }}€
     </br> Somme reçue : {{ project.sommeRecue }}€
     </br><input type="button" display=inline onclick="location.href='{{ path('edit_project', {'id': project.id}) }}';" value="Editer" />

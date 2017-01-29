@@ -69,16 +69,17 @@ class OffreDePret
     /**
      * @var boolean
      *
-     * @ORM\Column(name="acceptedByLender", type="boolean")
+     * @ORM\Column(name="acceptedByBoth", type="boolean")
      */
-    private $acceptedByLender = false;
+    private $acceptedByBoth;
 
     /**
-     * @var boolean
+     * @var \DateTime
      *
-     * @ORM\Column(name="acceptedByAsker", type="boolean")
+     * @ORM\Column(name="datePret", type="date", nullable=true)
+     * @Assert\DateTime()
      */
-    private $acceptedByAsker = false;
+    private $datePret;
 
 
 //TODO: Ajouter les fonctions increaseOffre() et decreaseOffre()
@@ -95,6 +96,12 @@ class OffreDePret
     /*public function decrease()
     {
         $this->getProject()->decreaseOffre();
+    }*/
+
+    public function __construct()
+    {
+        // Par défaut, la date de l'annonce est la date d'aujourd'hui
+        $this->acceptedByBoth = false;
     }
 
     /**
@@ -250,5 +257,52 @@ class OffreDePret
     {
         return $this->interets;
     }
-}
 
+    /**
+     * Set acceptedByBoth
+     *
+     * @param boolean $acceptedByBoth
+     *
+     * @return OffreDePret
+     */
+    public function setAcceptedByBoth($acceptedByBoth)
+    {
+        $this->acceptedByBoth = $acceptedByBoth;
+
+        return $this;
+    }
+
+    /**
+     * Get acceptedByBoth
+     *
+     * @return boolean
+     */
+    public function getAcceptedByBoth()
+    {
+        return $this->acceptedByBoth;
+    }
+
+    /**
+     * Set datePret
+     *
+     * @param \dateTime $datePret
+     *
+     * @return OffreDePret
+     */
+    public function setDatePret(\dateTime $datePret)
+    {
+        $this->datePret = $datePret;
+
+        return $this;
+    }
+
+    /**
+     * Get datePret
+     *
+     * @return \dateTime
+     */
+    public function getDatePret()
+    {
+        return $this->datePret;
+    }
+}
