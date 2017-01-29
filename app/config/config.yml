@@ -74,7 +74,13 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
     user_class: AppBundle\Entity\User
-
+    registration:
+        form:
+            type: AppBundle\Form\RegistrationType
+    profile:
+        form:
+            type: AppBundle\Form\RegistrationType
+    
 kms_froala_editor:
     language: "fr"
     toolbarInline: false

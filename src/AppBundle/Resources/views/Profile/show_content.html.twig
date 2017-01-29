@@ -1,6 +1,26 @@
-{% trans_default_domain 'FOSUserBundle' %}
 
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-</div>
+
+	<div class="fos_user_user_show">
+	    <p>Nom d'utilisateur: {{ user.username }}</p>
+	    <p>Email: {{ user.email }}</p>
+
+	    {% if user.prenom != null %}
+	    	<p>Prénom: {{ user.prenom }} </p>
+	    {% else %}
+	    	<p>Prénom: Non renseigné. </p>
+	    {% endif %}
+	    {% if user.nom != null %}
+	    	<p>Nom de famille: {{ user.nom }} </p>
+	    {% else %}
+	    	<p>Nom de famille: Non renseigné. </p>
+	    {% endif %}
+	    {% if user.dateDeNaissance != null %}
+	    	<p>Date de naissance: {{ user.dateDeNaissance|date('d-m-Y') }} </p>
+	    {% else %}
+	    	<p>Date de naissance: Non renseignée. </p>
+	    {% endif %}
+	</div>
+
+		<input type=button onclick="location.href='{{ path('fos_user_profile_edit')}} ';" value="Modifier vos informations" />
+
+
