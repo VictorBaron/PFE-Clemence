@@ -1454,9 +1454,7 @@ width: 360px;
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.form-login button:hover,.form-login button:active,.form-login button:focus {
-  background: #43A047;
-}
+
 .form-login .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -1468,6 +1466,12 @@ width: 360px;
 }
 .form-login .register-form {
   display: none;
+}
+
+.date_de_naissance
+{
+	border: 0;
+	margin: 0 0 15px;
 }
 
 

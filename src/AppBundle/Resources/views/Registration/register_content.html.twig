@@ -1,8 +1,21 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
-    </div>
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form-login'}}) }}
+
+	{{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Adresse e-mail'}}) }}
+	{{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder': 'Nom d\'utilisateur'}}) }}
+	{{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Prénom'| convert_encoding('UTF-8', 'ISO-8859-1')}}) }}
+	{{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
+	{{ form_label(form.dateDeNaissance, "Date de naissance") }}
+	{{ form_widget(form.dateDeNaissance, {'attr': {'class': 'form-control date_de_naissance'}}) }}
+	{{ form_widget(form.adresse, {'attr': {'class': 'form-control', 'placeholder': 'Adresse'}}) }}
+	{{ form_widget(form.codePostal, {'attr': {'class': 'form-control', 'placeholder': 'Code Postal'}}) }}
+	{{ form_widget(form.ville, {'attr': {'class': 'form-control', 'placeholder': 'Ville'}}) }}
+
+	{{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe'}}) }}
+	{{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder': 'Confirmer le mot de passe'}}) }}
+	
+	<input type="submit" value="Inscription" class="bouton"/>
+
+	<p class="message">Vous avez d&eacute;j&agrave; un compte ? <a href="#">Connexion</a></p>
 {{ form_end(form) }}
