@@ -4,7 +4,6 @@ leo:
 
 project:
     resource: "@ProjectBundle/Resources/config/routing/all.yml"
-    prefix:   /project
 
 app:
     resource: "@AppBundle/Controller"

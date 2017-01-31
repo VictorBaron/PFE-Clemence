@@ -58,21 +58,33 @@ class OffreDePretController extends Controller
 		if (null === $offreDePret) {
       		throw new NotFoundHttpException("Cette offre n'existe pas.");
     	}
-    
+    	
+
+    	$project=$offreDePret->getProject();
+
+    	
 		// On crée le FormBuilder grâce au service form factory
     	$form  = $this->get('form.factory')->create(OffreDePretType::class, $offreDePret);
 
 
 		if ($request->isMethod('POST') && $form->handleRequest($request)->isValid() ) {
 
+			$user=$this->getUser();
+	    	if($user==$offreDePret->getLender()){
+	    		$offreDePret->setAcceptedByLender(true);
+	    		$offreDePret->setAcceptedByAsker(false);
+	    	}
+	    	else {
+	    		$offreDePret->setAcceptedByLender(false);
+	    		$offreDePret->setAcceptedByAsker(true);
+	    	}
 	        // On enregistre notre objet dans la base de données
 	        $em->flush();
 
 	        $request->getSession()->getFlashBag()->add('notice', 'Offre modifiée !');
 	        
 	        // On redirige vers la page pour signer le contrat
-	        //TODO: page de création du pdf
-	        return $this->redirectToRoute('view_project', array('id' => $id));
+	        return $this->redirectToRoute('view_project', array('id' => $project->getId()));
 	      
 	    }
 
@@ -105,7 +117,8 @@ class OffreDePretController extends Controller
 		$offreDePret->setDatePret(new \Datetime());
 		$em->flush();
 
-		 return $this->redirectToRoute('view_project', array('id' => $project->getId() ));
+		return $this->redirectToRoute('pdftest',array('id'=> $id));
+		//return $this->redirectToRoute('view_project', array('id' => $project->getId() ));
 	}
 
 }

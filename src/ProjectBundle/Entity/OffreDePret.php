@@ -74,6 +74,20 @@ class OffreDePret
     private $acceptedByBoth;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="acceptedByLender", type="boolean")
+     */
+    private $acceptedByLender;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="acceptedByAsker", type="boolean")
+     */
+    private $acceptedByAsker;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="datePret", type="date", nullable=true)
@@ -82,26 +96,13 @@ class OffreDePret
     private $datePret;
 
 
-//TODO: Ajouter les fonctions increaseOffre() et decreaseOffre()
-    /**
-     * @ORM\PrePersist
-     */
-    /*public function increase()
-    {
-        $this->getProject()->increaseOffre();
-    }
-    /**
-    * @ORM\PreRemove
-    */
-    /*public function decrease()
-    {
-        $this->getProject()->decreaseOffre();
-    }*/
 
     public function __construct()
     {
         // Par défaut, la date de l'annonce est la date d'aujourd'hui
         $this->acceptedByBoth = false;
+        $this->acceptedByAsker = false;
+        $this->acceptedByLender = true;
     }
 
     /**
@@ -304,5 +305,53 @@ class OffreDePret
     public function getDatePret()
     {
         return $this->datePret;
+    }
+
+    /**
+     * Set acceptedByLender
+     *
+     * @param boolean $acceptedByLender
+     *
+     * @return OffreDePret
+     */
+    public function setAcceptedByLender($acceptedByLender)
+    {
+        $this->acceptedByLender = $acceptedByLender;
+
+        return $this;
+    }
+
+    /**
+     * Get acceptedByLender
+     *
+     * @return boolean
+     */
+    public function getAcceptedByLender()
+    {
+        return $this->acceptedByLender;
+    }
+
+    /**
+     * Set acceptedByAsker
+     *
+     * @param boolean $acceptedByAsker
+     *
+     * @return OffreDePret
+     */
+    public function setAcceptedByAsker($acceptedByAsker)
+    {
+        $this->acceptedByAsker = $acceptedByAsker;
+
+        return $this;
+    }
+
+    /**
+     * Get acceptedByAsker
+     *
+     * @return boolean
+     */
+    public function getAcceptedByAsker()
+    {
+        return $this->acceptedByAsker;
     }
 }
