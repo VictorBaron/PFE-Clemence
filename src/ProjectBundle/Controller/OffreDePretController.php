@@ -100,12 +100,16 @@ class OffreDePretController extends Controller
 
 		//TODO : générer le contrat
 
+
+
 		$project->setSommeRecue($project->getSommeRecue()+$offreDePret->getSomme());
 		$offreDePret->setAcceptedByBoth(true);
 		$offreDePret->setDatePret(new \Datetime());
 		$em->flush();
 
-		 return $this->redirectToRoute('view_project', array('id' => $project->getId() ));
+		return $this->redirectToRoute('pdftest',array('id'=> $id));
+
+		//return $this->redirectToRoute('view_project', array('id' => $project->getId() ));
 	}
 
 }

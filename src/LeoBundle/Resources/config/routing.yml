@@ -3,5 +3,7 @@ index:
     defaults: { _controller: LeoBundle:Default:index }
 
 pdftest:
-    path:     /pdftest
+    path:     /pdftest/{id}
     defaults: { _controller: LeoBundle:Default:pdftest }
+    requirements:
+         id: \d+
