@@ -1,8 +1,34 @@
+{% extends 'base.html.twig' %}
 
-{% block body %}
+{% block title %} Clemence - {{ name }} {% endblock %}
 
-  <h2>Création du projet de {{project.author.username}}</h2>
+{% block contenu %}
 
-  {{ include("ProjectBundle:Project:form.html.twig") }}
-    
+<!-- Main -->
+    <main role="main">
+
+        <!-- Container -->
+        <div class="container">
+        
+            <div class="fh5co-spacer fh5co-spacer-md"></div>
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-3">
+                    <h2 class="fh5co-heading-with-border">Création du projet de {{project.author.username}} <span class="fh5co-border"></span> </h2>
+
+  					{{ include("ProjectBundle:Project:form.html.twig") }}
+
+                </div>
+
+            </div>
+            <!-- row -->
+        </div>
+        <!-- Container -->
+
+        <!-- Spacer -->
+        <div class="fh5co-spacer fh5co-spacer-md"></div>
+
+    </main>
+    <!-- Main -->
+
 {% endblock %}

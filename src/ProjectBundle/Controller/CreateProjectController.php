@@ -9,8 +9,6 @@ use ProjectBundle\Entity\Project;
 use ProjectBundle\Entity\OffreDePret;
 use ProjectBundle\Form\ProjectType;
 use FOS\UserBundle;
-use KMS\FroalaEditorBundle\Form\Type\FroalaEditorType;
-use KMS\FroalaEditorBundle\Twig\FroalaExtension;
 
 class CreateProjectController extends Controller
 {
@@ -20,9 +18,10 @@ class CreateProjectController extends Controller
         // On crée un objet Advert, et on l'initialise.
     $project = new Project();
     $author = $this->getUser();
-   /* if (!is_object($user) || !$user instanceof UserInterface) {
-            throw new AccessDeniedException('This user does not have access to this section.');
-        }*/
+    /*if($author->getPrenom()==null||$author->getNom()==null||$author->DateDeNaissance()==null){
+      return $this->redirectToRoute('fos_show_profile_show');
+    }*/
+
     $project->setAuthor($author);
     $project->setContent("Votre projet ici.");
     $project->setTitle('Titre du projet');
@@ -48,6 +47,7 @@ class CreateProjectController extends Controller
     return $this->render('ProjectBundle:Project:create_project.html.twig', array(
       'project' => $project,
       'form' => $form->createView(),
+      'name' => "Créer un projet",
     ));
 
     }
@@ -101,6 +101,7 @@ class CreateProjectController extends Controller
       'project' => $project,
       'proprietaire' => $proprietaire,
       'offres' => $offres,
+      'name' => 'Projet',
     ));
   }
 
