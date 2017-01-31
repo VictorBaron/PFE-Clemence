@@ -89,17 +89,14 @@ class CreateProjectController extends Controller
 
     //Savoir si c'est le propriétaire qui regarde son annonce ou pas
     $user=$this->getUser();
-    $proprietaire=false;
-    if($user == $project->getAuthor()) {
-      $proprietaire=true;
-    }
+    
     //récupérer toutes les propositions
     $offres=$em->getRepository('ProjectBundle:OffreDePret')->findByProject($project);
 
 
     return $this->render('ProjectBundle:Project:view_project.html.twig', array(
       'project' => $project,
-      'proprietaire' => $proprietaire,
+      'user' => $user,
       'offres' => $offres,
       'name' => 'Projet',
     ));
@@ -112,7 +109,7 @@ class CreateProjectController extends Controller
     $listProjects = $em->getRepository('ProjectBundle:Project')->findByAuthor($user);
     foreach($listProjects as $project)
     {
-        $offres = $em->getRepository('ProjectBundle:OffreDePret')->findBy(array('project' => $project));
+        $offres = $em->getRepository('ProjectBundle:OffreDePret')->findByProject($project);
     }
     if (empty($listProjects))
       $offres=null;
