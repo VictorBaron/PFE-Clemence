@@ -1,5 +1,5 @@
 lend_to_project:
-  path:     /lend_to_project/{id}
+  path:     /project/lend_to_project/{id}
   defaults:
        { _controller: ProjectBundle:OffreDePret:create_offre_de_pret }
   requirements:
@@ -7,7 +7,7 @@ lend_to_project:
 
 
 edit_offre:
-  path:   /edit_offre/{id}
+  path:   /project/edit_offre/{id}
   defaults:
        { _controller: ProjectBundle:OffreDePret:edit_offre_de_pret }
   requirements:
@@ -15,14 +15,14 @@ edit_offre:
 
 
 view_offre:
-  path:    /view_offre/{id}
+  path:    /project/view_offre/{id}
   defaults:
        { _controller: ProjectBundle:OffreDePret:view_offre_de_pret }
   requirements:
         id: \d+
 
 accepter_offre:
-    path:    /accepter_offre/{id}
+    path:    /project/accepter_offre/{id}
     defaults:
        { _controller: ProjectBundle:OffreDePret:accepter_offre }
     requirements:
