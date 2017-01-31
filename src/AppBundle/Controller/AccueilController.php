@@ -13,15 +13,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class Accueil extends Controller
+class AccueilController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route=("/")
      */
     public function showAction()
     {
         return $this->render('Accueil/show.html.twig', [
-            'name' => 'Acceuil'
+            'name' => 'Accueil'
         ]);
     }
 }

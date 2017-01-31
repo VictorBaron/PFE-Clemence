@@ -1,6 +1,12 @@
 
 
 
+<!DOCTYPE html>
+
+{% extends 'base.html.twig' %}
+
+{% block title %} Clemence - {{ name }} {% endblock %}
+
 {% block contenu %}
 
 	<h2>{{ project.title }}</h2>
@@ -17,7 +23,7 @@
 			{# Les prêts déjà reçus #}
 				{% if offre.acceptedByBoth %}
 				
-					{{offre.lender.prenom}} {{offre.lender.nom}} vous â déjà prêté {{offre.somme}}€, à {{offre.interets}}% d'intérêts le {{ offre.datePret|date('d-m-Y') }} . Vous devrez lui rembourser {{offre.echeance}}€ tous les mois à partir du {{offre.dateDebutRemboursement|date('d-m-Y')}}.
+					{{offre.lender.prenom}} {{offre.lender.nom}} vous a déjà prêté {{offre.somme}}€, à {{offre.interets}}% d'intérêts le {{ offre.datePret|date('d-m-Y') }} . Vous devrez lui rembourser {{offre.echeance}}€ tous les mois à partir du {{offre.dateDebutRemboursement|date('d-m-Y')}}.
 
 				{# Les propositions de prêts #}
 				{% else %}
