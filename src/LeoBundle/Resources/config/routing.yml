@@ -6,5 +6,5 @@ pdftest:
     path:     /pdftest/{id}
     defaults: { _controller: LeoBundle:Default:pdftest }
     requirements:
-        id: \d+
+         id: \d+
 
