@@ -110,9 +110,16 @@ class CreateProjectController extends Controller
     $user=$this->getUser();
 
     $listProjects = $em->getRepository('ProjectBundle:Project')->findByAuthor($user);
+    foreach($listProjects as $project)
+    {
+        $offres = $em->getRepository('ProjectBundle:OffreDePret')->findBy(array('project' => $project));
+    }
+    if (empty($listProjects))
+      $offres=null;
 
     return $this->render('ProjectBundle:Project:my_projects.html.twig', array(
       'listProjects' => $listProjects,
+      'offres' => $offres,
     ));
   }
 

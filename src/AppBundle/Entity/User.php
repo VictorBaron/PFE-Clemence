@@ -41,7 +41,7 @@ class User extends BaseUser
      *
      * @ORM\Column(name="date_de_naissance", type="datetime", nullable=true)
      * @Assert\DateTime()
-     * @Assert\GreaterThan("-18 years")
+     * @Assert\LessThan("-18 years")
      */
     private $dateDeNaissance;
 

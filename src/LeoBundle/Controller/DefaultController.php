@@ -4,6 +4,8 @@ namespace LeoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+
 
 class DefaultController extends Controller
 {
@@ -14,7 +16,7 @@ class DefaultController extends Controller
     {
         return $this->render('LeoBundle:Default:index.html.twig');
     }
-    public function pdftestAction()
+    public function pdftestAction(Request$request, $id)
     {
 	    	// You can send the html as you want
 	   //$html = '<h1>Plain HTML</h1>';
@@ -29,11 +31,11 @@ class DefaultController extends Controller
 	         )
 	    );
 	  
-	    $this->returnPDFResponseFromHTML($html);
+	    $this->returnPDFResponseFromHTML($html, $id);
 
         //return $this->render('TestBundle:Default:pdftest.html.php');
     }
-    public function returnPDFResponseFromHTML($html){
+    public function returnPDFResponseFromHTML($html, $id){
         //set_time_limit(30); uncomment this line according to your needs
         // If you are not in a controller, retrieve of some way the service container and then retrieve it
         //$pdf = $this->container->get("white_october.tcpdf")->create('vertical', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);

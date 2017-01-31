@@ -10,5 +10,18 @@
     <input type="button" display=inline onclick="location.href='{{ path('view_project', {'id': project.id}) }}';" value="Aperçu du projet" />
     <input type="button" display=inline onclick="location.href='{{ path('delete_project', {'id': project.id}) }}';" value="Supprimer" />
     </li>
+
+    <ul style="display: inline-block">
+    	{% for offre in offres %}
+    		{% if (offre.project==project) and offre.acceptedByBoth %}
+    			<li style="display: inline-block"> 
+
+    			{# Affichage des contrats #}
+    			
+    				    <input type="button" display=inline onclick="location.href='{{ path('pdftest', {'id': offre.id}) }}';" value="Contrat avec {{ offre.lender.prenom }} {{offre.lender.nom}}" />
+    			</li>
+    		{% endif %}
+    	{% endfor %}
+    </ul>
   {% endfor %}
 </ul>
