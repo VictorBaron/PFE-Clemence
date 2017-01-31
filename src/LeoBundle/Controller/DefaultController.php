@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use \DateTime;
 
 
+
 class DefaultController extends Controller
 {
     /**
@@ -17,7 +18,9 @@ class DefaultController extends Controller
     {
         return $this->render('LeoBundle:Default:index.html.twig');
     }
+
     public function pdftestAction($id,Request $request)
+
     {
 	    	// You can send the html as you want
 	   //$html = '<h1>Plain HTML</h1>';

@@ -7,3 +7,4 @@ pdftest:
     defaults: { _controller: LeoBundle:Default:pdftest }
     requirements:
          id: \d+
+

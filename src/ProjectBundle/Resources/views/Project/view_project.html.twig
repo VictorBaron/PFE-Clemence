@@ -1,7 +1,4 @@
 
-
-
-
 {% extends 'base.html.twig' %}
 
 {% block title %} Clemence - {{ name }} {% endblock %}
@@ -9,9 +6,10 @@
 {% block contenu %}
 
 	<h2>{{ project.title }}</h2>
-
-	{{project.content|raw}}
-
+	
+	<div class="fr-view">
+		{{project.content|raw}}
+	</div>
 
 	{% if proprietaire %}
 		Pour l'instant, vous avez réussi à récolter {{project.sommeRecue}}€ sur les {{project.sommeDemandee}}€.
