@@ -43,17 +43,21 @@ class DefaultController extends Controller
         $pdf = $this->get("white_october.tcpdf")->create('vertical', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         // set document information
         $user = $this->getUser();
-		$pdf->SetCreator($user->getUsername());
-		
-		$pdf->SetAuthor($user->getUsername());
+		//$pdf->SetCreator($user->getPrenom());
+		//$pdf->SetAuthor($user->getUsername());
 		$pdf->SetTitle('TCPDF Example 008');
 		$pdf->SetSubject('TCPDF Tutorial');
 		$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
-
+		//variable utilisé
+		$nomemp=($user->getNom());
+		$prenomemp=($user->getPrenom());
+		$signatureimg='<img src="http://ekladata.com/BXrTO8zY1TkQwYJPJLdNDBztHwk@350x263.jpg" alt="" />';
+		$PDF_HEADER_LOGO='logoclem.png';
+		$dateval=date(' d/m/Y ');
 		// set default header data
 
-		$PDF_HEADER_STRING = "By " .$user->getUsername();
-		$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 008', $PDF_HEADER_STRING);
+		$PDF_HEADER_STRING = "Généré par Clemence";// .$user->getPrenom();//.$user->getNom;
+		$pdf->SetHeaderData($PDF_HEADER_LOGO, 10, 'Contrat de prêt', $PDF_HEADER_STRING);
 
 		// set header and footer fonts
 		$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -78,12 +82,56 @@ class DefaultController extends Controller
 		    require_once(dirname(__FILE__).'/lang/eng.php');
 		    $pdf->setLanguageArray($l);
 		}
+		$duhtml="<p style=\"text-align: center;\"><strong>CONTRAT DE PRÊT D'ARGENT ENTRE PARTICULIERS<br /></strong></p>";
+		$duhtml.="<p style=\"text-align: left;\"><strong>ENTRE</strong><br /></p>";
+		$duhtml.="<p style=\"text-align: left;\">________</span></span>, né(e) le ________</span></span> et résidant à l'adresse suivante : ________</p>";
+		$duhtml.="<p style=\"text-align: left;\">ci-après désigné(e) \"le prêteur\",<br /></p>";
+		$duhtml.="<p style=\"text-align: left;\"><strong>ET</strong><br /></p>";
+		$duhtml.="<p style=\"text-align: left;\">________</span></span>, né(e) le ________</span></span> et résidant à l'adresse suivante : ________</p>";
+		$duhtml.="<p style=\"text-align: left;\">ci-après désigné(e) \"emprunteur\", </p>";
+		$duhtml.="<p style=\"text-align: left;\"><br /><br /></p>";
+		$duhtml.="<p style=\"text-align: left;\"><strong>ARTICLE 1. OBJET DU CONTRAT<br /></strong></p>";
+		$duhtml.="<p style=\"text-align: left;\">Le présent contrat a pour objet de formaliser le prêt de somme d'argent du prêteur à l'emprunteur et de préciser les conditions et modalités de remboursement de ce prêt.</p>";
+		$duhtml.="<p style=\"text-align: left;\">Le présent contrat est conclu sous les conditions ordinaires et de droit en matière de prêt.</p>";
+		$duhtml.="<p style=\"text-align: left;\">La signature du présent contrat vaut reconnaissance formelle par l'emprunteur que les fonds lui ont été remis par le prêteur.</p>";
+		$duhtml.="<p style=\"text-align: left;\">Ainsi, à ce jour, le prêteur remet à l'emprunteur en guise de prêt soumis aux articles 1892 et suivants du Code civil, la somme de ________ € (________ euros).</p>";
+		$duhtml.="<p style=\"text-align: left;\"><strong><br />ARTICLE 2. MODALITÉS DE REMBOURSEMENT</strong></p>";
+		$duhtml.="<p style=\"text-align: left;\">Le prêt objet du présent contrat est consenti par le prêteur à l'emprunteur à titre gratuit.</p>";
+		$duhtml.="<p>L'emprunteur s'engage à rembourser la somme prêtée dans son intégralité, au plus tard le ________</p>";
+		$duhtml.="<p style=\"text-align: left;\">L'emprunteur aura la faculté de se libérer de tout ou partie du présent prêt avant l'échéance du terme, à la condition toutefois pour ce dernier de prévenir le prêteur au moins 2 (deux) mois à l'avance et par écrit, à son domicile. </p>";
+		$duhtml.="<p style=\"text-align: left;\">Conformément à l'article 1899 du Code civil, le prêteur ne pourra en aucun cas demander le remboursement anticipé du prêt présentement consenti.</p>";
+		$duhtml.="<p>En cas de décès de l'emprunteur avant le remboursement de la somme prêtée dans son intégralité, les héritiers et représentants de ce dernier seront, envers le prêteur, solidairement tenus des obligations résultant du présent contrat. Les sommes dues par l'emprunteur en vertu du présent contrat deviendront immédiatement exigibles sans qu'une mise en demeure préalable ne soit nécessaire. </p>";
+		$duhtml.="<p style=\"text-align: left;\"><strong><br />ARTICLE 3. INEXÉCUTION DU CONTRAT</strong></p>";
+		$duhtml.="<p style=\"text-align: left;\"><strong>3.1 Pénalités de retard</strong></p>";
+		$duhtml.="<p style=\"text-align: left;\">Les retards dans le remboursement du prêt entraîneront l'exigibilité du taux d'intérêt légal et majoration consécutive de la fraction de la somme exigible à la date donnée, 10 (dix) jours après mise en demeure de payer restée infructueuse, envoyée par le prêteur à l'emprunteur par courrier recommandé avec demande d'avis de réception.</p>";
+		$duhtml.="<p style=\"text-align: left;\"><strong><br />3.2 Déchéance du terme</strong></p>";
+		$duhtml.="<p style=\"text-align: left;\">La somme prêtée deviendra de plein droit exigible, si bon semble au prêteur, 15 (quinze) jours après l'envoi par le prêteur d'une lettre de mise en demeure restée sans suite, et qui ferait référence à la présente clause, en cas d'inexécution par l'emprunteur de toute obligation résultant du présent contrat.</p>";
+		$duhtml.="<p style=\"text-align: left;\"><strong><br />ARTICLE 4. FRAIS</strong></p>";
+		$duhtml.="<p style=\"text-align: left;\">Tous les frais, droits et émoluments du présent contrat et ceux qui en seront la conséquence, ainsi que, le cas échéant, le coût de tout renouvellement d'inscription, seront supportés par l'emprunteur, qui s'y oblige.</p>";
+		$duhtml.="<p style=\"text-align: left;\"><br /><br /><br />Fait à Paris via Clemence, le" .$dateval. "en 2,00 exemplaires.</p>";
 
 	        
         $pdf->AddPage();
-        $text = 'This is a <b color="#FF0000">digitally signed document</b> using the default (example) <b>tcpdf.crt</b> certificate.<br />To validate this signature you have to load the <b color="#006600">tcpdf.fdf</b> on the Arobat Reader to add the certificate to <i>List of Trusted Identities</i>.<br /><br />For more information check the source code of this example and the source code documentation for the <i>setSignature()</i> method.<br /><br /><a href="http://www.tcpdf.org">www.tcpdf.org</a>';
-		$pdf->writeHTML($text, true, 0, true, 0);
-		$pdf->Image('/Users/LeoH/PFE-Clemence/images/Ubuntu-logo.png', 180, 60, 15, 15, 'PNG');
+        //$text = 'Le Blabla du contrat ici, ici aussi, ici aussi...<br></br><br></br><dd> <b>Signature de :</b> ' .$nomemp.' '.$prenomemp.' <br></br><br></br><br></br><br></br><br></br><br></br> <b>Signature de :</b> ' .$nomemp.' '.$prenomemp;
+		$pdf->writeHTML($duhtml, true, 0, true, 0);
+		// set cell padding
+		$pdf->setCellPaddings(1, 1, 1, 1);
+		// set cell margins
+		$pdf->setCellMargins(1, 1, 1, 1);
+
+		$txt =  $nomemp.' '.$prenomemp;
+		$pdf->SetFillColor(255, 255, 255);
+		// Vertical alignment
+		//$pdf->MultiCell(80, 50, 'Signature de : '.$txt, 1, 'J', 1, 0, '', '', true, 0, false, true, 40);
+		//$pdf->MultiCell(55, 40, '[VERTICAL ALIGNMENT - MIDDLE] '.$txt, 1, 'J', 1, 0, '', '', true, 0, false, true, 40, 'M');
+		//$pdf->MultiCell(80, 50, 'Signature de : '.$txt, 1, 'J', 1, 1, '', '', true, 0, false, true, 40);
+		//$pdf->writeHTMLCell(100, 50, 10, 10, 'Lorem ipsum... <img src="/Users/LeoH/PFE-Clemence/images/Ubuntu-logo.png" /> Curabitur at porta dui...');
+		$cellsignpret = '<b>Signature du prêteur :</b> <br/>' .$nomemp.' '.$prenomemp.' <br/>'.$signatureimg;
+		$cellsignemp = '<b>Signature de l\'emprunteur :</b><br/> ' .$nomemp.' '.$prenomemp.' <br/>'.$signatureimg;
+		$pdf->writeHTMLCell(80,'','','',$cellsignemp,1,0,1,true,"C",true );
+		$pdf->writeHTMLCell(80,'','','',$cellsignpret,1,1,1,true,"C",true );		
+		//$pdf->Image('/Users/LeoH/PFE-Clemence/images/Ubuntu-logo.png', 60, 50, 15, 15, 'PNG');
+		//$pdf->Image('/Users/LeoH/PFE-Clemence/images/Ubuntu-logo.png', 60, 82, 15, 15, 'PNG');
 		
 		//$pdf->Image('/Images/Ubuntu-logo.png', 15, 140, 75, 113, 'PNG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
 		
