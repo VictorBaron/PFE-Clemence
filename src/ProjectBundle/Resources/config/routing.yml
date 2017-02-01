@@ -1,0 +1,38 @@
+project_homepage:
+    path:     /project_homepage
+    defaults: { _controller: ProjectBundle:Default:index }
+
+create_project:
+    path:    /create_project
+    defaults: { _controller: ProjectBundle:CreateProject:create_project }
+
+edit_project:
+    path:      /edit/{id}
+    defaults:
+        _controller: ProjectBundle:CreateProject:edit
+    requirements:
+        id: \d+
+
+view_project:
+  path:    /view_project/{id}
+  defaults: { _controller: ProjectBundle:CreateProject:view_project }
+  requirements:
+        id: \d+
+
+delete_project:
+    path:      /delete/{id}
+    defaults:
+       { _controller: ProjectBundle:CreateProject:delete }
+    requirements:
+        id: \d+
+
+my_projects:
+  path:    /my_projects
+  defaults: {   _controller: ProjectBundle:CreateProject:my_projects  }
+
+lend_to_project:
+  path:     /lend_to_project
+  defaults:
+       { _controller: ProjectBundle:OffreDePret:create_offre_de_pret }
+  requirements:
+        id: \d+

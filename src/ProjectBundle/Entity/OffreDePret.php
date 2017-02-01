@@ -80,6 +80,12 @@ class OffreDePret
      */
     private $datePret;
 
+    /**
+     * @ORM\Column(name="contrat", type="string", nullable=true)
+     *
+     * @Assert\File(mimeTypes={ "application/pdf" })
+     */
+    private $contrat;
 
 
     public function __construct()

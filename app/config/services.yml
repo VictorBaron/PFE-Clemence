@@ -8,3 +8,23 @@ services:
         class: AppBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+    app.signature_uploader:
+        class: AppBundle\FileUploader
+        arguments: ['%signatures_dir%']
+    app.image_profil_uploader:
+        class: AppBundle\FileUploader
+        arguments: ['%images_profil_dir%']
+    # ...
+    app.doctrine_signature_listener:
+        class: AppBundle\EventListener\SignatureUploadListener
+        arguments: ['@app.signature_uploader']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+
+    app.doctrine_image_profil_listener:
+        class: AppBundle\EventListener\ImageProfilUploadListener
+        arguments: ['@app.image_profil_uploader']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }

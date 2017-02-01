@@ -6,6 +6,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class RegistrationType extends AbstractType
 {
@@ -17,7 +18,9 @@ class RegistrationType extends AbstractType
         ->add('dateDeNaissance', BirthdayType::class)
         ->add('adresse')
         ->add('codePostal')
-        ->add('ville');
+        ->add('ville')
+        ->add('image_profil', FileType::class, array('label' => 'Image de profil'))
+        ->add('signature', FileType::class, array('label' => 'Signature'));
     }
 
     public function getParent()
