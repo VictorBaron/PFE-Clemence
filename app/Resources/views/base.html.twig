@@ -64,7 +64,7 @@
         <ul id="fh5co-main-nav">
             <li class="active"><a href="/">Accueil</a></li>
             <li><a href="/login">Connexion</a></li>
-            <li><a href="/profile">Profile</a></li>
+            <li><a href="/profile">Profil</a></li>
             <li><a href="/project/my_projects">Projets</a></li>
             <li><a href="/Nous">Qui sommes-nous ?</a></li>
             <li><a href="">Contact</a></li>
@@ -191,7 +191,6 @@
 <!-- Go To Top -->
 <a href="#" class="fh5co-gotop"><i class="ti-angle-up"></i></a>
 
-{% javascripts '@KMSFroalaEditorBundle/Resources/public/froala_editor_2.4.0/js/*' %}
    
 <!-- jQuery -->
 <script src=" {{ asset('js/jquery-1.10.2.min.js') }}"></script>
@@ -211,8 +210,10 @@
 <script src="{{ asset('js/velocity.min.js') }}"></script>
 <!-- Main JS -->
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('bundles/kmsfroalaeditor/froala_editor_2.4.0/js/froala_editor.min.js')}} "></script>
+<script src="{{ asset('bundles/kmsfroalaeditor/froala_editor_2.4.0/js/froala_editor.pkgd.min.js')}} "></script>
+
 <!-- Ligne Pour assetic, le fichier JS -->
- <script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+
 </body>
 </html>
