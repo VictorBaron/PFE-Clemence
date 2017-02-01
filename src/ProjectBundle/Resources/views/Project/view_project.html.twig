@@ -5,6 +5,12 @@
 
 {% block contenu %}
 
+<!-- Main -->
+    <main role="main">
+
+        <!-- Container -->
+        <div class="container">
+        
 	<h2>{{ project.title }}</h2>
 
 	<div class="fr-view">
@@ -67,8 +73,15 @@
 			</li>
 			{% endfor %}
 		</ul>
-		</br>Date butoir, le {{ project.dateFin|date('d-m-Y') }}
+		</br>Date butoire, le {{ project.dateFin|date('d-m-Y') }}
 		<input type="button" display=inline onclick="location.href='{{ path('lend_to_project', {'id': project.id}) }}';" value="Financer ce projet" />
 	{% endif %}
+        </div>
+        <!-- Container -->
+
+
+    </main>
+    <!-- Main -->
+
 
 {% endblock %}

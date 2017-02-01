@@ -1,4 +1,15 @@
-<h2>Mes projets</h2>
+{% extends 'base.html.twig' %}
+
+{% block title %} Clemence - {{ name }} {% endblock %}
+
+{% block contenu %}
+
+<!-- Main -->
+    <main role="main">
+
+        <!-- Container -->
+        <div class="container">
+        <h2>Mes projets</h2>
 <ul>
   {% for project in listProjects %}
     <li> <b>{{ project.title }} </b>
@@ -25,3 +36,12 @@
     </ul>
   {% endfor %}
 </ul>
+        </div>
+        <!-- Container -->
+
+    </main>
+    <!-- Main -->
+
+{% endblock %}
+
+
