@@ -679,8 +679,8 @@ Components
   color: #2a2e37;
 }
 .btn-outline:hover, .btn-outline:active, .btn-outline:focus {
-  border: 2px solid #282e3c !important;
-  background: #282e3c;
+  border: 2px solid #43ad8f !important;
+  background: #43ad8f;
   color: #ffffff;
 }
 
@@ -733,7 +733,7 @@ Components
 .btn-danger:hover,
 .btn-danger:active,
 .btn-danger:focus {
-  background: #282e3c;
+  background: #43ad8f;
   color: #ffffff;
 }
 
@@ -1454,9 +1454,7 @@ width: 360px;
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.form-login button:hover,.form-login button:active,.form-login button:focus {
-  background: #43A047;
-}
+
 .form-login .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -1468,6 +1466,12 @@ width: 360px;
 }
 .form-login .register-form {
   display: none;
+}
+
+.date_de_naissance
+{
+	border: 0;
+	margin: 0 0 15px;
 }
 
 

@@ -88,3 +88,7 @@ kms_froala_editor:
     includeJS: true
     includeFontAwesome: true
     pluginsDisabled: [ "save", "fullscreen" ]
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'

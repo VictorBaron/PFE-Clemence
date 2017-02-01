@@ -13,11 +13,11 @@
 
     <ul style="display: inline-block">
     	{% for offre in offres %}
-    		{% if (offre.project==project) and offre.acceptedByBoth %}
+    		{% if (offre.project==project) and offre.needToAccept == null %}
     			<li style="display: inline-block"> 
 
     			{# Affichage des contrats #}
-    			
+
     				    <input type="button" display=inline onclick="location.href='{{ path('pdftest', {'id': offre.id}) }}';" value="Contrat avec {{ offre.lender.prenom }} {{offre.lender.nom}}" />
     			</li>
     		{% endif %}

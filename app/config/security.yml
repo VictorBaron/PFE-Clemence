@@ -30,3 +30,4 @@ security:
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/profile/, role: ROLE_USER }
         - { path: ^/project/, role: ROLE_USER }
+        - { path: ^/leo/, role: ROLE_USER }

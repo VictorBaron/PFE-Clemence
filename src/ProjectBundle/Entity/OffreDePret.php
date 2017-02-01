@@ -67,11 +67,10 @@ class OffreDePret
     private $interets;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="acceptedByBoth", type="boolean")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $acceptedByBoth;
+    private $needToAccept;
 
     /**
      * @var \DateTime
@@ -82,27 +81,11 @@ class OffreDePret
     private $datePret;
 
 
-//TODO: Ajouter les fonctions increaseOffre() et decreaseOffre()
-    /**
-     * @ORM\PrePersist
-     */
-    /*public function increase()
-    {
-        $this->getProject()->increaseOffre();
-    }
-    /**
-    * @ORM\PreRemove
-    */
-    /*public function decrease()
-    {
-        $this->getProject()->decreaseOffre();
-    }*/
 
     public function __construct()
     {
-        // Par défaut, la date de l'annonce est la date d'aujourd'hui
-        $this->acceptedByBoth = false;
-    }
+
+       }
 
     /**
      * Get id
@@ -259,30 +242,6 @@ class OffreDePret
     }
 
     /**
-     * Set acceptedByBoth
-     *
-     * @param boolean $acceptedByBoth
-     *
-     * @return OffreDePret
-     */
-    public function setAcceptedByBoth($acceptedByBoth)
-    {
-        $this->acceptedByBoth = $acceptedByBoth;
-
-        return $this;
-    }
-
-    /**
-     * Get acceptedByBoth
-     *
-     * @return boolean
-     */
-    public function getAcceptedByBoth()
-    {
-        return $this->acceptedByBoth;
-    }
-
-    /**
      * Set datePret
      *
      * @param \dateTime $datePret
@@ -304,5 +263,29 @@ class OffreDePret
     public function getDatePret()
     {
         return $this->datePret;
+    }
+
+    /**
+     * Set needToAccept
+     *
+     * @param \AppBundle\Entity\User $needToAccept
+     *
+     * @return OffreDePret
+     */
+    public function setNeedToAccept(\AppBundle\Entity\User $needToAccept = null)
+    {
+        $this->needToAccept = $needToAccept;
+
+        return $this;
+    }
+
+    /**
+     * Get needToAccept
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getNeedToAccept()
+    {
+        return $this->needToAccept;
     }
 }

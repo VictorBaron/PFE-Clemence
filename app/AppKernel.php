@@ -20,7 +20,8 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new KMS\FroalaEditorBundle\KMSFroalaEditorBundle(),
             new ProjectBundle\ProjectBundle(),
-            new WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle(),// register bundle
+            new WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),// register bundle
             //new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             
         ];
