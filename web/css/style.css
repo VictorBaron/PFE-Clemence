@@ -1418,12 +1418,12 @@ a > img.fh5co-align-center {
 }
 
 .form-login {
-width: 360px;
+width: 420px;
   padding: 8% 0 0;
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 360px;
+  max-width: 420px;
   margin: 100px auto 100px;
   padding: 45px;
   text-align: center;
@@ -1477,8 +1477,7 @@ width: 360px;
 .error-login
 {
     color: #f7412d;
-		margin: 0 0 15px;
-		
+		margin: 0 0 15px;	
 }
 
 .error

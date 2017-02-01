@@ -13,6 +13,10 @@
 	{{ form_widget(form.ville, {'attr': {'class': 'form-control', 'placeholder': 'Ville'}}) }}
 	{{ form_label(form.dateDeNaissance, "Date de naissance") }}
 	{{ form_widget(form.dateDeNaissance, {'attr': {'class': 'form-control date_de_naissance'}}) }}
+	<label>Image de profil</label>
+	{{ form_widget(form.image_profil, {'attr': {'class': 'form-control'}}) }}
+	<label>Signature</label>
+	{{ form_widget(form.signature, {'attr': {'class': 'form-control'}}) }}
 	
 	<input type="submit" value="Inscription" class="bouton"/>
 
