@@ -19,6 +19,16 @@
 	    {% else %}
 	    	<p>Date de naissance: Non renseignée. </p>
 	    {% endif %}
+	    {% if user.signature != null %}
+	    	<img src="{{ asset('upload/signatures/') }}{{user.signature}}">
+		{% else %}
+    		Pas de signature chargée !
+		{% endif %}
+		{% if user.imageProfil != null %}
+	    	<img src="{{ asset('upload/images_profil/') }}{{user.imageProfil}}">
+		{% else %}
+    		Pas d'image de profil chargée !
+		{% endif %}
 	</div>
 
 		<input type=button onclick="location.href='{{ path('fos_user_profile_edit')}} ';" value="Modifier vos informations" />

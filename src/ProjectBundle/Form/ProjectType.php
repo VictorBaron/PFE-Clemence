@@ -4,7 +4,7 @@ namespace ProjectBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -27,7 +27,7 @@ class ProjectType extends AbstractType
       ->add('title',     TextType::class)
       ->add('content', FroalaEditorType::class)
       ->add('sommeDemandee',    IntegerType::class)
-      ->add('dateFin',     DateTimeType::class)
+      ->add('dateFin',     DateType::class)
       ->add('save',      SubmitType::class)
     ;
   }

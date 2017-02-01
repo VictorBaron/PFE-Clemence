@@ -1,4 +1,32 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
-{{ form_end(form) }}
+{% extends 'base.html.twig' %}
+
+{% block title %} Clemence - {{ name }} {% endblock %}
+
+{% block contenu %}
+
+<!-- Main -->
+    <main role="main">
+
+        <!-- Container -->
+        <div class="container">
+          {{ form_start(form) }}
+					<label class="required">Somme</label>
+					{{ form_widget(form.somme, {'attr': {'class': 'form-control'}}) }}
+					<label class="required">Date d&eacute;but remboursement</label>
+					{{ form_widget(form.dateDebutRemboursement, {'attr': {'class': 'form-control'}}) }}
+					<label class="required">Remboursement mensuel</label>
+					{{ form_widget(form.echeance, {'attr': {'class': 'form-control'}}) }}
+					<label class="required">Int&eacute;r&ecirc;ts</label>
+					{{ form_widget(form.interets, {'attr': {'class': 'form-control'}}) }}
+					<br/>
+					{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+					{{ form_end(form) }}
+        </div>
+        <!-- Container -->
+
+    </main>
+    <!-- Main -->
+
+{% endblock %}
+
+
