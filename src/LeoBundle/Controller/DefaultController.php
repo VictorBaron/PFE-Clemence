@@ -63,7 +63,10 @@ class DefaultController extends Controller
 		$interets = $offreDePret->getInterets();
 
 		$mois = $sommepret/$echeance;
-		$mois= (int)$mois;
+		$mois = (int)$mois;
+		$annee = $mois/12;
+		$interettot = $sommepret*($interets/100)*$annee;
+
 		//$datefinalremboursement = strtotime(date(" d/m/Y ", strtotime($datepretstr)) . " +1 day ");
 		$datefinalremboursement=date('d/m/Y',strtotime('+'.$mois.' month',strtotime($datepret->format("Y-m-d H:i:s"))));
 		
@@ -183,7 +186,7 @@ class DefaultController extends Controller
 	}
 	public function chiffre_en_lettre($montant, $devise1='', $devise2='')
 	{
-		$sortie = '';
+		$sortie =  '';
 	    if(empty($devise1)) $dev1='euros';
 	    else $dev1=$devise1;
 	    if(empty($devise2)) $dev2='centimes';
