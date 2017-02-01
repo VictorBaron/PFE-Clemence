@@ -4,10 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-
-    "hash": "837fdbe81553594d57fa7c1c766a68d4",
     "content-hash": "6bae53c2188cad80c79b4bb604a3d843",
-
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -784,7 +781,6 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-
                 "reference": "f230319d0ed822145bf73711082f31d983234c55"
             },
             "dist": {
@@ -854,9 +850,7 @@
             "keywords": [
                 "User management"
             ],
-
             "time": "2017-02-01 09:04:51"
-
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1086,7 +1080,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2016-11-11 18:43:20"
+            "time": "2016-11-11T18:43:20+00:00"
         },
         {
             "name": "leafo/scssphp",
@@ -1139,7 +1133,7 @@
                 "scss",
                 "stylesheet"
             ],
-            "time": "2016-09-11 01:34:11"
+            "time": "2016-09-11T01:34:11+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1307,7 +1301,7 @@
                 "javascript",
                 "minification"
             ],
-            "time": "2015-03-25 10:11:08"
+            "time": "2015-03-25T10:11:08+00:00"
         },
         {
             "name": "psr/cache",
@@ -1688,7 +1682,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2016-11-22 11:42:57"
+            "time": "2016-11-22T11:42:57+00:00"
         },
         {
             "name": "symfony/monolog-bundle",

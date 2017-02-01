@@ -128,6 +128,112 @@ ul ul, ul ol, ol ul, ol ol {
   display: block;
 }
 
+/*hero2*/
+#fh5co-hero-small {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  position: relative;
+  height: 75px;
+  z-index: 8;
+}
+#fh5co-hero-small a {
+  /*border-bottom: 1px solid #ff7d14;*/
+  color: #ffffff;
+  display: inline;
+  float: right;
+  margin-right: 20px;
+}
+#fh5co-hero-small .fh5co-hero-small-btn {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 480px) {
+  #fh5co-hero-small .fh5co-hero-small-btn {
+    width: 100%;
+    display: inline-block;
+  }
+}
+#fh5co-hero-small .fh5co-hero-small-text-wrap {
+  padding-top: 15px;
+  height: 75px;
+  display: table;
+  width: 100%;
+  z-index: 10;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-hero-small .fh5co-hero-small-text-wrap {
+    padding-top: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #fh5co-hero-small .fh5co-hero-small-text-wrap {
+    padding-top: 0px;
+  }
+}
+#fh5co-hero-small .fh5co-hero-small-text-wrap .fh5co-hero-small-text {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  text-align: left;
+  color: #fff;
+}
+#fh5co-hero-small .fh5co-hero-small-text-wrap .fh5co-hero-small-text .fh5co-uppercase-heading-sm {
+  color: #ffffff;
+  font-size: 18px;
+  letter-spacing: 6px;
+}
+#fh5co-hero-small .fh5co-hero-small-text-wrap .fh5co-hero-small-text h1 {
+  font-size: 100px;
+  line-height: 112px;
+  font-family: "Montserrat", sans-serif;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-hero-small .fh5co-hero-small-text-wrap .fh5co-hero-small-text h1 {
+    font-size: 80px;
+    line-height: 92px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #fh5co-hero-small .fh5co-hero-small-text-wrap .fh5co-hero-small-text h1 {
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
+#fh5co-hero-small .fh5co-hero-small-text-wrap .fh5co-hero-small-text p {
+  font-size: 30px;
+  line-height: 42px;
+  font-family: "Montserrat", sans-serif;
+}
+#fh5co-hero-small .fh5co-hero-small-text-wrap .fh5co-hero-small-text p em {
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+}
+#fh5co-hero-small .fh5co-bg-overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+}
+
+
+/*hero2*/
+
+
+
+
+
+
+
+
+
+
+
 #fh5co-hero {
   background-size: cover;
   background-repeat: no-repeat;
@@ -215,6 +321,95 @@ ul ul, ul ol, ol ul, ol ol {
   bottom: 0;
   z-index: 9;
 }
+#fh5co-hero {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  position: relative;
+  height: 650px;
+  z-index: 8;
+}
+#fh5co-hero a {
+  border-bottom: 1px solid #ff7d14;
+  color: #ffffff;
+}
+#fh5co-hero .fh5co-hero-btn {
+  font-size: 20px;
+  color: #ffffff;
+}
+@media screen and (max-width: 480px) {
+  #fh5co-hero .fh5co-hero-btn {
+    width: 100%;
+    display: block;
+  }
+}
+#fh5co-hero .fh5co-hero-text-wrap {
+  padding-top: 100px;
+  height: 650px;
+  display: table;
+  width: 100%;
+  z-index: 10;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-hero .fh5co-hero-text-wrap {
+    padding-top: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #fh5co-hero .fh5co-hero-text-wrap {
+    padding-top: 0px;
+  }
+}
+#fh5co-hero .fh5co-hero-text-wrap .fh5co-hero-text {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+#fh5co-hero .fh5co-hero-text-wrap .fh5co-hero-text .fh5co-uppercase-heading-sm {
+  color: #ffffff;
+  font-size: 18px;
+  letter-spacing: 6px;
+}
+#fh5co-hero .fh5co-hero-text-wrap .fh5co-hero-text h1 {
+  font-size: 100px;
+  line-height: 112px;
+  font-family: "Montserrat", sans-serif;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-hero .fh5co-hero-text-wrap .fh5co-hero-text h1 {
+    font-size: 80px;
+    line-height: 92px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #fh5co-hero .fh5co-hero-text-wrap .fh5co-hero-text h1 {
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
+#fh5co-hero .fh5co-hero-text-wrap .fh5co-hero-text p {
+  font-size: 30px;
+  line-height: 42px;
+  font-family: "Montserrat", sans-serif;
+}
+#fh5co-hero .fh5co-hero-text-wrap .fh5co-hero-text p em {
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+}
+#fh5co-hero .fh5co-bg-overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+}
+
+
 
 main[role="main"], #fh5co-blog {
   padding: 5em 0 3em 0;

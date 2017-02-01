@@ -83,11 +83,28 @@
 <!-- Header -->
 <header id="fh5co-header" role="banner">
     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>
-    <div id="fh5co-logo" class="text-center"><a href="/"><img src="{{ asset('images/logoclem.png') }}" alt="Image"></a></div>
+    <div id="fh5co-logo" class="text-center"><!--<a href="/"><img src="{{ asset('images/logoclem.png') }}" alt="Image"></a>--></div>
 </header>
 <!-- Header -->
 
 <!-- Hero -->
+<aside role="complementary" id="fh5co-hero-small" style="background-image: url({{ asset('images/hero_bg_1.jpg')}} )">
+    <div class="fh5co-bg-overlay"></div>
+
+        <div class="fh5co-hero-small-text-wrap">
+            <div class="fh5co-hero-small-text">
+                <p>
+                    <a href="/register" class="btn btn-outline fh5co-hero-btn fh5co-hero-btn-right">Inscription</a>
+                    <a href="/login" class="btn btn-primary fh5co-hero-btn fh5co-hero-btn-right">Connexion</a>
+                    <a href="/">CLEMENCE</a>
+            </div>
+        </div>
+
+</aside>
+<!-- Hero -->
+
+<!-- Hero -->
+<!--
 <aside role="complementary" id="fh5co-hero" style="background-image: url({{ asset('images/hero_bg_1.jpg')}} )">
     <div class="fh5co-bg-overlay"></div>
     <div class="container">
@@ -95,7 +112,7 @@
             <div class="fh5co-hero-text">
                 <h1>CLEMENCE </h1>
                 <p>Empruntez et prêtez à votre communauté. <br><!--<em>by</em> <a href="" target="_blank">FREEHTML5.co</a></p>-->
-                <br class="fh5co-spacer fh5co-spacer-sm">
+                <!--<br class="fh5co-spacer fh5co-spacer-sm">
                 <p>
                     <a href="/login" class="btn btn-primary fh5co-hero-btn">Connexion</a>
                     <a href="/register" class="btn btn-outline fh5co-hero-btn">Inscription</a>
@@ -106,6 +123,7 @@
     </div>
 </aside>
 <!-- Hero -->
+
 
 {%  block contenu %}
 <!--Contenu de la page dont il est question à placer dans le block Contenu-->
