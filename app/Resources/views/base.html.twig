@@ -64,6 +64,7 @@
         <ul id="fh5co-main-nav">
             <li class="active"><a href="/">Accueil</a></li>
             <li><a href="/login">Connexion</a></li>
+            <li><a href="/profile">Profile</a></li>
             <li><a href="/project/project_homepage">Projets</a></li>
             <li><a href="/Nous">Qui sommes-nous ?</a></li>
             <li><a href="">Contact</a></li>
@@ -106,7 +107,11 @@
 </aside>
 <!-- Hero -->
 
-{% block contenu %}
+{%  block contenu1 %}
+<!--Contenu de la page dont il est question à placer dans le block Contenu-->
+{% endblock %}
+
+{% block contenu2 %}
 <!--Contenu de la page dont il est question à placer dans le block Contenu-->
 {% endblock %}
 
@@ -149,11 +154,11 @@
                     <li><a href="#">Creative Market</a></li>
                 </ul>
             </div>-->
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <h2 class="fh5co-footer-title">Contact</h2>
                 <ul class="fh5co-footer-links">
-                    <li><a href="#" class="fh5co-link">tel</a> </li>
-                    <li><a href="#" class="fh5co-link">mel</a> </li>
+                    <li><a href="#" class="fh5co-link">tel : +33 (0)6 69 25 15 46</a> </li>
+                    <li><a href="#" class="fh5co-link">mél : remi.courtois-d-auzac@edu.ece.fr</a> </li>
                     <!--A dé-commenter lorsqu'on aura des réseaux sociaux
                     <li><a href="#" class="fh5co-link"><i class="fa fa-twitter"></i>Twitter</a></li>
                     <li><a href="#" class="fh5co-link"><i class="fa fa-facebook-square"></i>Facebook</a></li>
@@ -167,7 +172,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="fh5co-copyright">
-                    <p class="pull-left">&copy;	Clemence 2017. All Rights Reserved. <br> Lovely crafted by SamSam </p>
+                    <p class="pull-left">&copy;	Clemence 2017. All Rights Reserved.</p>
                     <!--A dé-commenter lorsqu'on aura des réseaux sociaux
                     <ul class="pull-right fh5co-footer-social">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>

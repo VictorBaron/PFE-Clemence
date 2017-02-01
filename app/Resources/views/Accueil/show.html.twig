@@ -2,7 +2,7 @@
 
 {% block title %} Clemence - {{ name }} {% endblock %}
 
-{% block contenu %}
+{% block contenu1 %}
 <!-- Main -->
 <main role="main">
 
@@ -19,9 +19,9 @@
                 -->
                 <div>
                     <section>
-                        <h5 class="text-muted text-uppercase fh5co-no-margin-bottom fh5co-letter-space">Bienvenue parmis nous</h5>
+                        <h5 class="text-muted text-uppercase fh5co-no-margin-bottom fh5co-letter-space">Bienvenue parmi nous</h5>
                         <br class="fh5co-spacer fh5co-spacer-xxs">
-                        <h2 class="fh5co-heading"><span class="fh5co-border"></span>Clemence redéfini le secteur des prêts d’argents en proposant une alternative simple, sécurisé et solidaire ! </h2>
+                        <h2 class="fh5co-heading"><span class="fh5co-border"></span>Clemence redéfini le secteur des prêts d’argents en proposant une alternative simple, sécurisée et solidaire ! </h2>
                         <p>Les intérêts que vous payez aujourd’hui quand vous contractez un prêt permettent de couvrir les défauts de paiement des autres… Chez Clemence nous trouvons que cela n’est pas normal que ce soit les bons emprunteurs qui payent pour les mauvais.</p>
                         <p>Clemence est une plateforme qui simplifie et sécurise les prêts d’argents entre proches. Les demandeurs y créent leur page de projet et l’envoient aux personnes de leur entourage, et celles-ci peuvent choisir de participer du montant de leur choix. S’ils acceptent, notre procédure prend en charge les mesures administratives et sécuritaires afin que chacun y trouve son compte : le demandeur finance son projet et le prêteur lui permet d’exister, tout en étant assuré d’être remboursé.</p>
                         <!--
@@ -38,7 +38,7 @@
         </div>
     </div>
     <!-- Latest Project -->
-    <hr class="fh5co-spacer fh5co-spacer-sm">
+    <!--<hr class="fh5co-spacer fh5co-spacer-sm">-->
     <!-- Crew -->
     <!--<div id="fh5co-crew">
         <div class="container">
@@ -158,4 +158,29 @@
         </div>
     </div>
     <!-- Call to action -->
+{% endblock %}
+
+{% block contenu2 %}
+    <!-- Container -->
+    <div class="container">
+        <div class="row">
+            <!--<h2 class="fh5co-uppercase-heading-sm text-center">Slider</h2>-->
+            <!--<div class="fh5co-spacer fh5co-spacer-sm"></div>-->
+
+            <div class="col-md-12">
+                <div class="owl-carousel owl-carousel-fullwidth">
+                    <div class="item"><img src="{{ asset('images/douzefrancais.png') }}" alt="image"></div>
+                    <div class="item"><img src="{{ asset('images/SSS.png') }}" alt="image"></div>
+                    <div class="item"><img src="{{ asset('images/Avantages.png') }}" alt="image"></div>
+                    <!--<div class="item"><img src="images/img_large_4.jpg" alt="image"></div>
+                    <div class="item"><img src="images/img_large_5.jpg" alt="image"></div>
+                    <div class="item"><img src="images/img_large_6.jpg" alt="image"></div>
+                    <div class="item"><img src="images/img_large_7.jpg" alt="image"></div>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container -->
+    <div class="fh5co-spacer fh5co-spacer-md"></div>
 {% endblock %}

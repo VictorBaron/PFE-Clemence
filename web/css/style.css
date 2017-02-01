@@ -679,8 +679,8 @@ Components
   color: #2a2e37;
 }
 .btn-outline:hover, .btn-outline:active, .btn-outline:focus {
-  border: 2px solid #282e3c !important;
-  background: #282e3c;
+  border: 2px solid #43ad8f !important;
+  background: #43ad8f;
   color: #ffffff;
 }
 
@@ -733,7 +733,7 @@ Components
 .btn-danger:hover,
 .btn-danger:active,
 .btn-danger:focus {
-  background: #282e3c;
+  background: #43ad8f;
   color: #ffffff;
 }
 
