@@ -66,7 +66,24 @@ class User extends BaseUser
      */
     private $ville;
 
-    
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @Assert\NotBlank(message="Uploadez votre signature ici.")
+     * @Assert\File(mimeTypes={ "image/*" })
+     * @Assert\File(maxSize="500k")
+     */
+    private $signature;
+
+     /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @Assert\NotBlank(message="Uploadez votre image de profil ici.")
+     * @Assert\File(mimeTypes={ "image/*" })
+     * @Assert\File(maxSize="500k")
+     */
+    private $image_profil;
+
 
     public function __construct()
     {
@@ -215,5 +232,53 @@ class User extends BaseUser
     public function getVille()
     {
         return $this->ville;
+    }
+
+    /**
+     * Set signature
+     *
+     * @param string $signature
+     *
+     * @return User
+     */
+    public function setSignature($signature)
+    {
+        $this->signature = $signature;
+
+        return $this;
+    }
+
+    /**
+     * Get signature
+     *
+     * @return string
+     */
+    public function getSignature()
+    {
+        return $this->signature;
+    }
+
+    /**
+     * Set imageProfil
+     *
+     * @param string $imageProfil
+     *
+     * @return User
+     */
+    public function setImageProfil($imageProfil)
+    {
+        $this->image_profil = $imageProfil;
+
+        return $this;
+    }
+
+    /**
+     * Get imageProfil
+     *
+     * @return string
+     */
+    public function getImageProfil()
+    {
+        return $this->image_profil;
     }
 }

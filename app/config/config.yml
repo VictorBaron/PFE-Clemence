@@ -8,7 +8,9 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
+    signatures_dir: '%kernel.root_dir%/../web/upload/signatures'
+    images_profil_dir: '%kernel.root_dir%/../web/upload/images_profil'
 
 framework:
     #esi:             ~
