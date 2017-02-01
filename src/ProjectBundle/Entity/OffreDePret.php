@@ -67,25 +67,10 @@ class OffreDePret
     private $interets;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="acceptedByBoth", type="boolean")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $acceptedByBoth;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="acceptedByLender", type="boolean")
-     */
-    private $acceptedByLender;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="acceptedByAsker", type="boolean")
-     */
-    private $acceptedByAsker;
+    private $needToAccept;
 
     /**
      * @var \DateTime
@@ -99,11 +84,8 @@ class OffreDePret
 
     public function __construct()
     {
-        // Par défaut, la date de l'annonce est la date d'aujourd'hui
-        $this->acceptedByBoth = false;
-        $this->acceptedByAsker = false;
-        $this->acceptedByLender = true;
-    }
+
+       }
 
     /**
      * Get id
@@ -260,30 +242,6 @@ class OffreDePret
     }
 
     /**
-     * Set acceptedByBoth
-     *
-     * @param boolean $acceptedByBoth
-     *
-     * @return OffreDePret
-     */
-    public function setAcceptedByBoth($acceptedByBoth)
-    {
-        $this->acceptedByBoth = $acceptedByBoth;
-
-        return $this;
-    }
-
-    /**
-     * Get acceptedByBoth
-     *
-     * @return boolean
-     */
-    public function getAcceptedByBoth()
-    {
-        return $this->acceptedByBoth;
-    }
-
-    /**
      * Set datePret
      *
      * @param \dateTime $datePret
@@ -308,50 +266,26 @@ class OffreDePret
     }
 
     /**
-     * Set acceptedByLender
+     * Set needToAccept
      *
-     * @param boolean $acceptedByLender
+     * @param \AppBundle\Entity\User $needToAccept
      *
      * @return OffreDePret
      */
-    public function setAcceptedByLender($acceptedByLender)
+    public function setNeedToAccept(\AppBundle\Entity\User $needToAccept = null)
     {
-        $this->acceptedByLender = $acceptedByLender;
+        $this->needToAccept = $needToAccept;
 
         return $this;
     }
 
     /**
-     * Get acceptedByLender
+     * Get needToAccept
      *
-     * @return boolean
+     * @return \AppBundle\Entity\User
      */
-    public function getAcceptedByLender()
+    public function getNeedToAccept()
     {
-        return $this->acceptedByLender;
-    }
-
-    /**
-     * Set acceptedByAsker
-     *
-     * @param boolean $acceptedByAsker
-     *
-     * @return OffreDePret
-     */
-    public function setAcceptedByAsker($acceptedByAsker)
-    {
-        $this->acceptedByAsker = $acceptedByAsker;
-
-        return $this;
-    }
-
-    /**
-     * Get acceptedByAsker
-     *
-     * @return boolean
-     */
-    public function getAcceptedByAsker()
-    {
-        return $this->acceptedByAsker;
+        return $this->needToAccept;
     }
 }

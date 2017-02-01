@@ -27,6 +27,7 @@ class OffreDePretController extends Controller
 		//Récupérer l'auteur du projet
     	$project = $em->getRepository('ProjectBundle:Project')->find($id);
     	$offreDePret->setProject($project);
+    	$offreDePret->setNeedToAccept($project->getAuthor());
 
     	// On crée le FormBuilder grâce au service form factory
     	$form  = $this->get('form.factory')->create(OffreDePretType::class, $offreDePret);
@@ -71,15 +72,14 @@ class OffreDePretController extends Controller
 
 			$user=$this->getUser();
 	    	if($user==$offreDePret->getLender()){
-	    		$offreDePret->setAcceptedByLender(true);
-	    		$offreDePret->setAcceptedByAsker(false);
+	    		$offreDePret->setNeedToAccept($offreDePret->getProject()->getAuthor());
 	    	}
 	    	else {
-	    		$offreDePret->setAcceptedByLender(false);
-	    		$offreDePret->setAcceptedByAsker(true);
+	    		$offreDePret->setNeedToAccept($offreDePret->getLender());
 	    	}
 	        // On enregistre notre objet dans la base de données
 	        $em->flush();
+	    	$this->emailOffrePret($offreDePret);
 
 	        $request->getSession()->getFlashBag()->add('notice', 'Offre modifiée !');
 	        
@@ -113,12 +113,32 @@ class OffreDePretController extends Controller
 		//TODO : générer le contrat
 
 		$project->setSommeRecue($project->getSommeRecue()+$offreDePret->getSomme());
-		$offreDePret->setAcceptedByBoth(true);
+		$offreDePret->setNeedToAccept(null);
 		$offreDePret->setDatePret(new \Datetime());
 		$em->flush();
 
 		return $this->redirectToRoute('pdftest',array('id'=> $id));
 		//return $this->redirectToRoute('view_project', array('id' => $project->getId() ));
+	}
+
+
+	public function emailOffrePret (OffreDePret $offre){
+
+		 $message = \Swift_Message::newInstance()
+	        ->setSubject('Hello Email')
+	        ->setFrom('victor.baron2@gmail.com')
+	        ->setTo($offre->getNeedToAccept()->getEmail())
+	        ->setBody(
+	            $this->renderView(
+	                // app/Resources/views/Emails/registration.html.twig
+	                'Emails/offreDePret.html.twig',
+	                array('offre' => $offre)
+	            ),
+	            'text/html'
+	        );
+       
+    $this->get('mailer')->send($message);
+
 	}
 
 }

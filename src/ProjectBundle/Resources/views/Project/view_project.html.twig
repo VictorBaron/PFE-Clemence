@@ -19,12 +19,12 @@
 			{% for offre in offres %}
 			<li>
 			{# Les prêts déjà reçus #}
-				{% if offre.acceptedByBoth %}
+				{% if offre.needToAccept == null %}
 				
 					{{offre.lender.prenom}} {{offre.lender.nom}} vous a déjà prêté {{offre.somme}}€, à {{offre.interets}}% d'intérêts le {{ offre.datePret|date('d-m-Y') }} . Vous devrez lui rembourser {{offre.echeance}}€ tous les mois à partir du {{offre.dateDebutRemboursement|date('d-m-Y')}}.
 
 				{# Les propositions de prêts #}
-				{% elseif offre.acceptedByLender %}
+				{% elseif offre.needToAccept == user %}
 					{{offre.lender.prenom}} {{offre.lender.nom}} propose de vous prêter {{offre.somme}}, à {{offre.interets}}% d'intérêts. Il demande ensuite à être remboursé de {{offre.echeance}}€ tous les mois à partir du {{offre.dateDebutRemboursement|date('d-m-Y')}}.
 					<input type=button onclick="location.href='{{ path('edit_offre', {'id': offre.id} )}} ';" value="Proposer d'autres conditions" />
 					<input type=button onclick="location.href='{{ path('accepter_offre', {'id': offre.id} )}} ';" value="Accepter ce prêt" />
@@ -44,23 +44,23 @@
 			<li>
 		{# Si vous avez déjà proposé un prêt #}
 				{% if offre.lender==user %}
-					{% if offre.acceptedbyBoth %}
+					{% if offre.needToAccept == null %}
 						Vous avez déjà prêté {{offre.somme}} à {{project.author.prenom}} {{project.author.nom}} ! Voici le contrat associé : 
 
 				{# Si l'emprunteur n'a pas encore accepté l'offre #}
-					{% elseif offre.acceptedByLender %}
-						{{project.author.prenom}} {{project.author.nom}} n'a pas encore accepté votre offre de prêt. Celle-ci était un prêt de {{offre.somme}} à {{offre.interets}} d'intérets. Vous avez demandé ensuite à être remboursé de {{offre.echeance}}€ tous les mois à partir du {{offre.dateDebutRemboursement|date('d-m-Y')}}.
+					{% elseif offre.needToAccept == user %}
+						{{project.author.prenom}} {{project.author.nom}} a modifié votre offre. Il demande si vous pouvez lui prêter {{offre.somme}}, à {{offre.interets}}% d'intérêts. Il demande ensuite à vous rembourser de {{offre.echeance}}€ tous les mois à partir du {{offre.dateDebutRemboursement|date('d-m-Y')}}.
+							<input type=button onclick="location.href='{{ path('edit_offre', {'id': offre.id} )}} ';" value="Proposer d'autres conditions" />
+							<input type=button onclick="location.href='{{ path('accepter_offre', {'id': offre.id} )}} ';" value="Accepter ce prêt" />
 
 				{# Si l'emprunteur a modifié l'offre #}
 					{% else %}
-							{{project.author.prenom}} {{project.author.nom}} a modifié votre offre. Il demande si vous pouvez lui prêter {{offre.somme}}, à {{offre.interets}}% d'intérêts. Il demande ensuite à vous rembourser de {{offre.echeance}}€ tous les mois à partir du {{offre.dateDebutRemboursement|date('d-m-Y')}}.
-							<input type=button onclick="location.href='{{ path('edit_offre', {'id': offre.id} )}} ';" value="Proposer d'autres conditions" />
-							<input type=button onclick="location.href='{{ path('accepter_offre', {'id': offre.id} )}} ';" value="Accepter ce prêt" />
+						{{project.author.prenom}} {{project.author.nom}} n'a pas encore accepté votre offre de prêt. Celle-ci était un prêt de {{offre.somme}}€ à {{offre.interets}} d'intérets. Vous avez demandé ensuite à être remboursé de {{offre.echeance}}€ tous les mois à partir du {{offre.dateDebutRemboursement|date('d-m-Y')}}.
 					{% endif %}
 
 		{# Si un prêt a déjà été effectué sur ce projet par qqn d'autre #}
 				{% else %}
-					{% if offre.acceptedbyBoth %}
+					{% if offre.needToAccept==null %}
 						{{offre.lender.prenom}} {{offre.lender.nom}} a déjà prêté {{offre.somme}} à {{project.author.username}} !
 					{% endif %}
 				{% endif %}
