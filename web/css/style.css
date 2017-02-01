@@ -1474,5 +1474,18 @@ width: 360px;
 	margin: 0 0 15px;
 }
 
+.error-login
+{
+    color: #f7412d;
+		margin: 0 0 15px;
+		
+}
+
+
+.project
+{
+width : 5400px;
+margin: 0 60px 0;
+}
 
 /*# sourceMappingURL=style.css.map */
