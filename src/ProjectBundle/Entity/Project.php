@@ -79,7 +79,7 @@ class Project
      *
      * @ORM\Column(name="dateFin", type="datetime")
      * @Assert\DateTime()
-     * @Assert\GreaterThan("today")
+     * @Assert\Range(min="now", minMessage="La date butoire doit être supérieure à aujourd'hui.")
      */
     private $dateFin;
 
