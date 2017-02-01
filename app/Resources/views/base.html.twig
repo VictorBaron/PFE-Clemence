@@ -186,7 +186,8 @@
 <!-- Go To Top -->
 <a href="#" class="fh5co-gotop"><i class="ti-angle-up"></i></a>
 
-
+{% javascripts '@KMSFroalaEditorBundle/Resources/public/froala_editor_2.4.0/js/*' %}
+   
 <!-- jQuery -->
 <script src=" {{ asset('js/jquery-1.10.2.min.js') }}"></script>
 <!-- jQuery Easing -->
@@ -205,6 +206,8 @@
 <script src="{{ asset('js/velocity.min.js') }}"></script>
 <!-- Main JS -->
 <script src="{{ asset('js/main.js') }}"></script>
-
+<!-- Ligne Pour assetic, le fichier JS -->
+ <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
 </body>
 </html>

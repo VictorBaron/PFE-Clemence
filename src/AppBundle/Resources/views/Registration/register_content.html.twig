@@ -4,16 +4,15 @@
 
 	{{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Adresse e-mail'}}) }}
 	{{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder': 'Nom d\'utilisateur'}}) }}
+	{{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe'}}) }}
+	{{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder': 'Confirmer le mot de passe'}}) }}
 	{{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Prénom'| convert_encoding('UTF-8', 'ISO-8859-1')}}) }}
 	{{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
-	{{ form_label(form.dateDeNaissance, "Date de naissance") }}
-	{{ form_widget(form.dateDeNaissance, {'attr': {'class': 'form-control date_de_naissance'}}) }}
 	{{ form_widget(form.adresse, {'attr': {'class': 'form-control', 'placeholder': 'Adresse'}}) }}
 	{{ form_widget(form.codePostal, {'attr': {'class': 'form-control', 'placeholder': 'Code Postal'}}) }}
 	{{ form_widget(form.ville, {'attr': {'class': 'form-control', 'placeholder': 'Ville'}}) }}
-
-	{{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe'}}) }}
-	{{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder': 'Confirmer le mot de passe'}}) }}
+	{{ form_label(form.dateDeNaissance, "Date de naissance") }}
+	{{ form_widget(form.dateDeNaissance, {'attr': {'class': 'form-control date_de_naissance'}}) }}
 	
 	<input type="submit" value="Inscription" class="bouton"/>
 
