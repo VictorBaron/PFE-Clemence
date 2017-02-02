@@ -35,7 +35,7 @@
 								Pas de signature chargée !
                             {% endif %}
                             {% if user.imageProfil != null %}
-								<img src="{{ asset('upload/images_profil/') }}{{user.imageProfil}}">
+								<img src="{{ asset('upload/images_profil/') }}{{user.imageProfil}}" style="float:right;">
                             {% else %}
 								Pas d'image de profil chargée !
                             {% endif %}
@@ -53,7 +53,7 @@
 
 {% block appelauxarmes %}
 	<!-- Call to action -->
-	<div class="fh5co-call-to-action" style="background-image: url(images/img_wide_1.jpg); background-position: center center;">
+	<div class="fh5co-call-to-action" style="background-image: url({{asset('images/img_wide_1.jpg')}}); background-position: center center;">
 		<div class="fh5co-overlay"></div>
 		<div class="container">
 			<div class="fh5co-call-to-action-wrap">

@@ -34,7 +34,7 @@ class DefaultController extends Controller
 	          'someDataToView' => 'Something'
 	         )
 	    );
-	  
+
 	    $this->returnPDFResponseFromHTML($html, $id);
 
         //return $this->render('TestBundle:Default:pdftest.html.php');
@@ -183,7 +183,11 @@ class DefaultController extends Controller
         
         $pdf->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = '', $autopadding = true);
         $pdf->Output($filename.".pdf",'I'); // This will output the PDF as a response directly*/
+
 	}
+
+
+
 	public function chiffre_en_lettre($montant, $devise1='', $devise2='')
 	{
 		$sortie = '';
