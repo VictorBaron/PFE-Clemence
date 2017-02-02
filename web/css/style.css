@@ -874,8 +874,8 @@ Components
   color: #2a2e37;
 }
 .btn-outline:hover, .btn-outline:active, .btn-outline:focus {
-  border: 2px solid #43ad8f !important;
-  background: #43ad8f;
+  border: 2px solid #ffc126 !important;
+  background: #ffc126;
   color: #ffffff;
 }
 
@@ -928,7 +928,7 @@ Components
 .btn-danger:hover,
 .btn-danger:active,
 .btn-danger:focus {
-  background: #43ad8f;
+  background: #ffc126;
   color: #ffffff;
 }
 

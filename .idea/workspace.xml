@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4665ccc-5502-45bc-b592-c2671686baaf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/my_projects.html.twig" afterPath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/my_projects.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,11 +31,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="1216" column="46" lean-forward="false" selection-start-line="1216" selection-start-column="43" selection-end-line="1216" selection-end-column="46" />
+            <state relative-caret-position="342">
+              <caret line="921" column="16" lean-forward="true" selection-start-line="919" selection-start-column="20" selection-end-line="921" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="13906">
+              <caret line="2894" column="23" lean-forward="false" selection-start-line="2894" selection-start-column="23" selection-end-line="2894" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -85,7 +95,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my_projects.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="my_projects.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/my_projects.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="579">
@@ -101,7 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.\37 5\25</find>
       <find>.\35 0\25</find>
       <find>.\32 5\25</find>
       <find>.\32 00\25</find>
@@ -131,6 +140,7 @@
       <find>form-control input-lg</find>
       <find>li</find>
       <find>butoi</find>
+      <find>hover</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,12 +175,12 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Profile/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Profile/edit_content.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/delete.html.twig" />
         <option value="$PROJECT_DIR$/web/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Profile/show_content.html.twig" />
         <option value="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/view_project.html.twig" />
         <option value="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/my_projects.html.twig" />
+        <option value="$PROJECT_DIR$/web/css/style.css" />
       </list>
     </option>
   </component>
@@ -1089,12 +1099,12 @@
       <workItem from="1485868969989" duration="5283000" />
       <workItem from="1485952969495" duration="9090000" />
       <workItem from="1485986636439" duration="618000" />
-      <workItem from="1486004070799" duration="8245000" />
+      <workItem from="1486004070799" duration="8854000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79584000" />
+    <option name="totallyTimeSpent" value="80193000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1455,14 +1465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="1216" column="46" lean-forward="false" selection-start-line="1216" selection-start-column="43" selection-end-line="1216" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Resetting/reset_content.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1505,14 +1507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="2894" column="23" lean-forward="false" selection-start-line="2894" selection-start-column="23" selection-end-line="2894" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/view_project.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1138">
@@ -1546,6 +1540,22 @@
           <folding>
             <element signature="e#12#26#0#Twig" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13906">
+          <caret line="2894" column="23" lean-forward="false" selection-start-line="2894" selection-start-column="23" selection-end-line="2894" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="921" column="16" lean-forward="true" selection-start-line="919" selection-start-column="20" selection-end-line="921" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
