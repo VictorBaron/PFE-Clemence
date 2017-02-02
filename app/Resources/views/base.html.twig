@@ -63,11 +63,12 @@
     <div class="fh5co-nav-inner">
         <ul id="fh5co-main-nav">
             <li class="active"><a href="/">Accueil</a></li>
-            <li><a href="/login">Connexion</a></li>
+            {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="/login">Connexion</a></li>
+            {% endif %}
             <li><a href="/profile">Profil</a></li>
             <li><a href="/project/my_projects">Projets</a></li>
             <li><a href="/Nous">Qui sommes-nous ?</a></li>
-            <li><a href="">Contact</a></li>
         </ul>
         <!--A dé-commenter lorsqu'on aura des réseaux sociaux
         <ul class="fh5co-social">
@@ -83,29 +84,34 @@
 <!-- Header -->
 <header id="fh5co-header" role="banner">
     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>
-    <div id="fh5co-logo" class="text-center"><a href="/"><img src="{{ asset('images/logoclem.png') }}" alt="Image"></a></div>
+    {% block logo %}
+    {% endblock %}
 </header>
 <!-- Header -->
 
+{% block hero %}
 <!-- Hero -->
-<aside role="complementary" id="fh5co-hero" style="background-image: url({{ asset('images/hero_bg_1.jpg')}} )">
+<aside role="complementary" id="fh5co-hero-small" style="background-image: url({{ asset('images/hero_bg_1.jpg')}} )">
     <div class="fh5co-bg-overlay"></div>
-    <div class="container">
-        <div class="fh5co-hero-text-wrap">
-            <div class="fh5co-hero-text">
-                <h1>CLEMENCE </h1>
-                <p>Empruntez et prêtez à votre communauté. <br><!--<em>by</em> <a href="" target="_blank">FREEHTML5.co</a></p>-->
-                <br class="fh5co-spacer fh5co-spacer-sm">
-                <p>
-                    <a href="/login" class="btn btn-primary fh5co-hero-btn">Connexion</a>
-                    <a href="/register" class="btn btn-outline fh5co-hero-btn">Inscription</a>
 
-                </p>
+        <div class="fh5co-hero-small-text-wrap">
+            <div class="fh5co-hero-small-text">
+                <p>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a href="/logout" class="btn btn-outline fh5co-hero-btn fh5co-hero-btn-right">Déconnexion</a>
+                        <a href="/profile" class="btn btn-primary fh5co-hero-btn fh5co-hero-btn-right">Profil</a>
+                        <a href="/">CLEMENCE</a>
+                    {% else %}
+                        <a href="/register" class="btn btn-outline fh5co-hero-btn fh5co-hero-btn-right">Inscription</a>
+                        <a href="/login" class="btn btn-primary fh5co-hero-btn fh5co-hero-btn-right">Connexion</a>
+                        <a href="/">CLEMENCE</a>
+                    {% endif %}
             </div>
         </div>
-    </div>
+
 </aside>
 <!-- Hero -->
+{% endblock %}
 
 {%  block contenu %}
 <!--Contenu de la page dont il est question à placer dans le block Contenu-->
@@ -135,30 +141,22 @@
                 <h2 class="fh5co-footer-title">Bureaux</h2>
                 <div class="row">
                     <div class="col-md-6">
-                        <h3 class="h4">France</h3>
                         <address>ECE Paris <br> 75015 Paris</address>
+                        <h3 class="h4">France</h3>
                     </div>
+                    <!--
                     <div class="col-md-6">
                         <h3 class="h4">Egypte</h3>
                         <address>S.C.E.P. <br> Le Caire</address>
-                    </div>
+                    </div>-->
                 </div>
             </div>
-            <!--
-            <div class="col-md-2">
-                <h2 class="fh5co-footer-title">Links</h2>
-                <ul class="fh5co-footer-links">
-                    <li><a href="#">FREEHTML5.co</a></li>
-                    <li><a href="#">Smashingmagazine</a></li>
-                    <li><a href="#">A List Apart</a></li>
-                    <li><a href="#">Creative Market</a></li>
-                </ul>
-            </div>-->
+
             <div class="col-md-4">
                 <h2 class="fh5co-footer-title">Contact</h2>
                 <ul class="fh5co-footer-links">
                     <li><a href="#" class="fh5co-link">tel : +33 (0)6 69 25 15 46</a> </li>
-                    <li><a href="#" class="fh5co-link">mél : remi.courtois-d-auzac@edu.ece.fr</a> </li>
+                    <li><a href="#" class="fh5co-link">mél : contact@clemence.fr</a> </li>
                     <!--A dé-commenter lorsqu'on aura des réseaux sociaux
                     <li><a href="#" class="fh5co-link"><i class="fa fa-twitter"></i>Twitter</a></li>
                     <li><a href="#" class="fh5co-link"><i class="fa fa-facebook-square"></i>Facebook</a></li>

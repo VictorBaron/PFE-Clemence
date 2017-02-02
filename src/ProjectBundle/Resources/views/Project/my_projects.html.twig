@@ -1,15 +1,32 @@
-<h2>Mes projets</h2>
+{% extends 'base.html.twig' %}
+
+{% block title %} Clemence - {{ name }} {% endblock %}
+
+{% block contenu %}
+
+<!-- Main -->
+    <main role="main">
+
+        <!-- Container -->
+        <div class="container">
+        <h2>Mes projets</h2>
 <ul>
   {% for project in listProjects %}
-    <li> <b>{{ project.title }} </b>
+    <div class="well">
+        <li> <b>{{ project.title }} </b>
     </br> Ce projet a été créé le {{ project.date|date('d-m-Y') }}
     </br> Ce projet se termine le {{ project.dateFin|date('d-m-Y') }}
     </br> Somme demandée : {{ project.sommeDemandee }}€
     </br> Somme reçue : {{ project.sommeRecue }}€
-    </br><input type="button" display=inline onclick="location.href='{{ path('edit_project', {'id': project.id}) }}';" value="Editer" />
-    <input type="button" display=inline onclick="location.href='{{ path('view_project', {'id': project.id}) }}';" value="Aperçu du projet" />
-    <input type="button" display=inline onclick="location.href='{{ path('delete_project', {'id': project.id}) }}';" value="Supprimer" />
+    </br>
+        <a href="{{ path('view_project', {'id': project.id}) }}" class="btn btn-primary">Aperçu du projet</a>
+        <a href="{{ path('edit_project', {'id': project.id}) }}" class="btn btn-outline"><i class="ti-pencil"></i> Editer</a>
+        <a href="{{ path('delete_project', {'id': project.id}) }}" class="btn btn-outline">Supprimer</a>
+        <!--<input type="button" display=inline onclick="location.href='{{ path('view_project', {'id': project.id}) }}';" value="Aperçu du projet" />
+    <input type="button" display=inline onclick="location.href='{{ path('edit_project', {'id': project.id}) }}';" value="Editer" />
+    <input type="button" display=inline onclick="location.href='{{ path('delete_project', {'id': project.id}) }}';" value="Supprimer" />-->
     </li>
+    </div>
 
     <ul style="display: inline-block">
     	{% for offre in offres %}
@@ -25,3 +42,26 @@
     </ul>
   {% endfor %}
 </ul>
+        </div>
+        <!-- Container -->
+
+    </main>
+    <!-- Main -->
+
+{% endblock %}
+
+{% block appelauxarmes %}
+    <!-- Call to action -->
+    <div class="fh5co-call-to-action" style="background-image:  url(images/img_wide_1.jpg); background-position: center center;">
+        <div class="fh5co-overlay"></div>
+        <div class="container">
+            <div class="fh5co-call-to-action-wrap">
+                <div class="fh5co-call-to-action-inner text-center">
+                    <h3 class="fh5co-call-to-action-text">Donnez à vos projets la chance de se réaliser</h3>
+                    <a href="/project/create_project" class="btn btn-primary btn-lg">Créer un projet</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Call to action -->
+{% endblock %}

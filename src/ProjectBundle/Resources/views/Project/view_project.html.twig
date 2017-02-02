@@ -5,16 +5,21 @@
 
 {% block contenu %}
 
-	<h2>{{ project.title }}</h2>
+<!-- Main -->
+    <main role="main">
 
+        <!-- Container -->
+        <div class="container">
+	<h2>{{ project.title }}</h2>
 	<div class="fr-view">
 		{{project.content|raw}}
 	</div>
 
+			<div class="well">
 	{# Si l'utilisateur est le proprio #}
 	{% if project.author==user %}
 		Pour l'instant, vous avez réussi à récolter {{project.sommeRecue}}€ sur les {{project.sommeDemandee}}€.
-		</br>Date butoir, le {{ project.dateFin|date('d-m-Y') }}
+		</br>Date butoire le {{ project.dateFin|date('d-m-Y') }}
 		<ul>
 			{% for offre in offres %}
 			<li>
@@ -67,8 +72,16 @@
 			</li>
 			{% endfor %}
 		</ul>
-		</br>Date butoir, le {{ project.dateFin|date('d-m-Y') }}
+		</br>Date butoire le {{ project.dateFin|date('d-m-Y') }}
 		<input type="button" display=inline onclick="location.href='{{ path('lend_to_project', {'id': project.id}) }}';" value="Financer ce projet" />
 	{% endif %}
+        </div>
+		</div>
+        <!-- Container -->
+
+
+    </main>
+    <!-- Main -->
+
 
 {% endblock %}

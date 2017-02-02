@@ -3,5 +3,20 @@
 {% block title %} Clemence - {{ name }} {% endblock %}
 
 {% block contenu %}
-{% include "AppBundle:Profile:edit_content.html.twig" %}
+    <main role="main">
+
+        <!-- Latest Project -->
+        <div id="fh5co-latest-project">
+            <div class="container">
+                <div class="row">
+
+                    <div>
+                        <section>
+                            {% include "AppBundle:Profile:edit_content.html.twig" %}
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 {% endblock  %}
