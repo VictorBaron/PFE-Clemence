@@ -63,11 +63,12 @@
     <div class="fh5co-nav-inner">
         <ul id="fh5co-main-nav">
             <li class="active"><a href="/">Accueil</a></li>
-            <li><a href="/login">Connexion</a></li>
+            {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="/login">Connexion</a></li>
+            {% endif %}
             <li><a href="/profile">Profil</a></li>
             <li><a href="/project/my_projects">Projets</a></li>
             <li><a href="/Nous">Qui sommes-nous ?</a></li>
-            <li><a href="">Contact</a></li>
         </ul>
         <!--A dé-commenter lorsqu'on aura des réseaux sociaux
         <ul class="fh5co-social">
@@ -83,10 +84,12 @@
 <!-- Header -->
 <header id="fh5co-header" role="banner">
     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>
-    <div id="fh5co-logo" class="text-center"><!--<a href="/"><img src="{{ asset('images/logoclem.png') }}" alt="Image"></a>--></div>
+    {% block logo %}
+    {% endblock %}
 </header>
 <!-- Header -->
 
+{% block hero %}
 <!-- Hero -->
 <aside role="complementary" id="fh5co-hero-small" style="background-image: url({{ asset('images/hero_bg_1.jpg')}} )">
     <div class="fh5co-bg-overlay"></div>
@@ -94,14 +97,25 @@
         <div class="fh5co-hero-small-text-wrap">
             <div class="fh5co-hero-small-text">
                 <p>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a href="/logout" class="btn btn-outline fh5co-hero-btn fh5co-hero-btn-right">Déconnexion</a>
+                        <a href="/profile" class="btn btn-primary fh5co-hero-btn fh5co-hero-btn-right">Profil</a>
+                        <a href="/">CLEMENCE</a>
+                    {% else %}
+                        <a href="/register" class="btn btn-outline fh5co-hero-btn fh5co-hero-btn-right">Inscription</a>
+                        <a href="/login" class="btn btn-primary fh5co-hero-btn fh5co-hero-btn-right">Connexion</a>
+                        <a href="/">CLEMENCE</a>
+                    {% endif %}
+                    <!--
                     <a href="/register" class="btn btn-outline fh5co-hero-btn fh5co-hero-btn-right">Inscription</a>
                     <a href="/login" class="btn btn-primary fh5co-hero-btn fh5co-hero-btn-right">Connexion</a>
-                    <a href="/">CLEMENCE</a>
+                    <a href="/">CLEMENCE</a>-->
             </div>
         </div>
 
 </aside>
 <!-- Hero -->
+{% endblock %}
 
 <!-- Hero -->
 <!--
@@ -137,6 +151,7 @@
 <!--Un appel aux armes pour la page d'accueil-->
 {% endblock %}
 
+
 {% block fos_user_content %}
 <!--Pour tout ce qui est login-->
 {% endblock fos_user_content %}
@@ -156,10 +171,11 @@
                         <h3 class="h4">France</h3>
                         <address>ECE Paris <br> 75015 Paris</address>
                     </div>
+                    <!--
                     <div class="col-md-6">
                         <h3 class="h4">Egypte</h3>
                         <address>S.C.E.P. <br> Le Caire</address>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <!--

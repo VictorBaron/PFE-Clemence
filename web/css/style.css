@@ -1429,7 +1429,7 @@ Components
 }
 
 .fh5co-call-to-action {
-  background-color: #ff7d14;
+  /*background-color: #ff7d14;*/
   background-size: cover;
   background-attachment: fixed;
   position: relative;

@@ -146,7 +146,7 @@
 
 {% block appelauxarmes %}
     <!-- Call to action -->
-    <div class="fh5co-call-to-action" style="background-image: url(images/img_wide_1.jpg); background-position: center center;">
+    <div class="fh5co-call-to-action" style="background-image:  url(images/img_wide_1.jpg); background-position: center center;">
         <div class="fh5co-overlay"></div>
         <div class="container">
             <div class="fh5co-call-to-action-wrap">
@@ -183,4 +183,32 @@
     </div>
     <!-- Container -->
     <div class="fh5co-spacer fh5co-spacer-md"></div>
+{% endblock %}
+
+{% block hero %}
+<aside role="complementary" id="fh5co-hero" style="background-image: url({{ asset('images/hero_bg_1.jpg')}} )">
+        <div class="fh5co-bg-overlay"></div>
+        <div class="container">
+            <div class="fh5co-hero-text-wrap">
+                <div class="fh5co-hero-text">
+                    <h1>CLEMENCE </h1>
+                    <p>Empruntez et prêtez à votre communauté. <br><!--<em>by</em> <a href="" target="_blank">FREEHTML5.co</a>--></p>
+                        <br class="fh5co-spacer fh5co-spacer-sm">
+                        <p>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <a href="/profile" class="btn btn-primary fh5co-hero-btn fh5co-hero-btn-right">Profil</a>
+                                <a href="/logout" class="btn btn-outline fh5co-hero-btn fh5co-hero-btn-right">Déconnexion</a>
+                            {% else %}
+                                <a href="/login" class="btn btn-primary fh5co-hero-btn fh5co-hero-btn-right">Connexion</a>
+                                <a href="/register" class="btn btn-outline fh5co-hero-btn fh5co-hero-btn-right">Inscription</a>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+{% endblock %}
+
+{% block logo %}
+<div id="fh5co-logo" class="text-center"><a href="/"><img src="{{ asset('images/logoclem.png') }}" alt="Image"></a></div>
 {% endblock %}

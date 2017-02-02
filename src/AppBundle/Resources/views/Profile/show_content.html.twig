@@ -1,36 +1,68 @@
+{% block contenu %}
+	<main role="main">
 
+	<!-- Latest Project -->
+	<div id="fh5co-latest-project">
+		<div class="container">
+			<div class="row">
 
-	<div class="fos_user_user_show">
-	    <p>Nom d'utilisateur: {{ user.username }}</p>
-	    <p>Email: {{ user.email }}</p>
+				<div>
+					<section>
+						<div class="fos_user_user_show">
+							<h2>Votre profil utilisateur</h2>
+							<div class="well">
+							<p>Nom d'utilisateur: {{ user.username }}</p>
+							<p>Email: {{ user.email }}</p>
 
-	    {% if user.prenom != null %}
-	    	<p>Prénom: {{ user.prenom }} </p>
-	    {% else %}
-	    	<p>Prénom: Non renseigné. </p>
-	    {% endif %}
-	    {% if user.nom != null %}
-	    	<p>Nom de famille: {{ user.nom }} </p>
-	    {% else %}
-	    	<p>Nom de famille: Non renseigné. </p>
-	    {% endif %}
-	    {% if user.dateDeNaissance != null %}
-	    	<p>Date de naissance: {{ user.dateDeNaissance|date('d-m-Y') }} </p>
-	    {% else %}
-	    	<p>Date de naissance: Non renseignée. </p>
-	    {% endif %}
-	    {% if user.signature != null %}
-	    	<img src="{{ asset('upload/signatures/') }}{{user.signature}}">
-		{% else %}
-    		Pas de signature chargée !
-		{% endif %}
-		{% if user.imageProfil != null %}
-	    	<img src="{{ asset('upload/images_profil/') }}{{user.imageProfil}}">
-		{% else %}
-    		Pas d'image de profil chargée !
-		{% endif %}
+                            {% if user.prenom != null %}
+								<p>Prénom: {{ user.prenom }} </p>
+                            {% else %}
+								<p>Prénom: Non renseigné. </p>
+                            {% endif %}
+                            {% if user.nom != null %}
+								<p>Nom de famille: {{ user.nom }} </p>
+                            {% else %}
+								<p>Nom de famille: Non renseigné. </p>
+                            {% endif %}
+                            {% if user.dateDeNaissance != null %}
+								<p>Date de naissance: {{ user.dateDeNaissance|date('d-m-Y') }} </p>
+                            {% else %}
+								<p>Date de naissance: Non renseignée. </p>
+                            {% endif %}
+                            {% if user.signature != null %}
+								<img src="{{ asset('upload/signatures/') }}{{user.signature}}">
+                            {% else %}
+								Pas de signature chargée !
+                            {% endif %}
+                            {% if user.imageProfil != null %}
+								<img src="{{ asset('upload/images_profil/') }}{{user.imageProfil}}">
+                            {% else %}
+								Pas d'image de profil chargée !
+                            {% endif %}
+						</div>
+						<a href="#" class="btn btn-primary fh5co-btn-icon" onclick="location.href='{{ path('fos_user_profile_edit')}} '" /><i class="ti-pencil"></i> Modifiez vos informations</a>
+						<p> Attention ! Ces informations sont nécessaires à la création d'un projet ainsi qu'à son financement. Veuillez les remplir pour profiter de toutes les fonctionnalités de Clémence.</p>
+
+					</section>
+				</div>
+			</div>
+		</div>
 	</div>
+	</main>
+{% endblock %}
 
-		<input type=button onclick="location.href='{{ path('fos_user_profile_edit')}} ';" value="Modifier vos informations" />
-
-<p> Attention ! Ces informations sont nécessaires à la création d'un projet ainsi qu'à son financement. Veuillez les remplir pour profiter de toutes les fonctionnalités de Clémence.</p>
+{% block appelauxarmes %}
+	<!-- Call to action -->
+	<div class="fh5co-call-to-action" style="background-image: url(images/img_wide_1.jpg); background-position: center center;">
+		<div class="fh5co-overlay"></div>
+		<div class="container">
+			<div class="fh5co-call-to-action-wrap">
+				<div class="fh5co-call-to-action-inner text-center">
+					<h3 class="fh5co-call-to-action-text">Vérifiez les informations de votre profil et lancez vous !</h3>
+					<a href="/project/my_projects" class="btn btn-primary btn-lg">Créer un projet</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Call to action -->
+{% endblock %}
