@@ -64,20 +64,32 @@ class CreateProjectController extends Controller
 
     // On crée un formulaire vide, qui ne contiendra que le champ CSRF
     // Cela permet de protéger la suppression d'annonce contre cette faille
+    $contrat=false;
+    $offres= $em->getRepository('ProjectBundle:OffreDePret')->findByProject($project);
+      foreach ($offres as $offre) {
+        if($offre->getNeedToAccept()==null){
+          $contrat=true;
+          return $this->render('ProjectBundle:Project:delete.html.twig', array(
+          'contrat' => $contrat,
+          ));
+        }
+      }
     $form = $this->get('form.factory')->create();
 
     if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+
       $em->remove($project);
       $em->flush();
 
       $request->getSession()->getFlashBag()->add('info', "Le projet a bien été supprimé.");
 
-      return $this->redirectToRoute('project_homepage');
+      return $this->redirectToRoute('my_projects');
     }
     
     return $this->render('ProjectBundle:Project:delete.html.twig', array(
       'project' => $project,
       'form'   => $form->createView(),
+      'contrat' => $contrat,
     ));
   }
 
@@ -107,12 +119,15 @@ class CreateProjectController extends Controller
     $user=$this->getUser();
 
     $listProjects = $em->getRepository('ProjectBundle:Project')->findByAuthor($user);
+
+   
     foreach($listProjects as $project)
     {
         $offres = $em->getRepository('ProjectBundle:OffreDePret')->findByProject($project);
     }
-    if (empty($listProjects))
+    if ($listProjects ==null)
       $offres=null;
+
 
     return $this->render('ProjectBundle:Project:my_projects.html.twig', array(
       'listProjects' => $listProjects,
