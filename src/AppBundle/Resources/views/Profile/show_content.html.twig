@@ -11,6 +11,11 @@
 						<div class="fos_user_user_show">
 							<h2>Votre profil utilisateur</h2>
 							<div class="well">
+							 {% if user.imageProfil != null %}
+								<img src="{{ asset('upload/images_profil/') }}{{user.imageProfil}}" style="height:20%; width:20%; float:right;">
+                            {% else %}
+								Pas d'image de profil chargée !
+                            {% endif %}
 							<p>Nom d'utilisateur: {{ user.username }}</p>
 							<p>Email: {{ user.email }}</p>
 
@@ -34,11 +39,7 @@
                             {% else %}
 								Pas de signature chargée !
                             {% endif %}
-                            {% if user.imageProfil != null %}
-								<img src="{{ asset('upload/images_profil/') }}{{user.imageProfil}}" style="float:right;">
-                            {% else %}
-								Pas d'image de profil chargée !
-                            {% endif %}
+                           
 						</div>
 						<a href="#" class="btn btn-primary fh5co-btn-icon" onclick="location.href='{{ path('fos_user_profile_edit')}} '" /><i class="ti-pencil"></i> Modifiez vos informations</a>
 						<p> Attention ! Ces informations sont nécessaires à la création d'un projet ainsi qu'à son financement. Veuillez les remplir pour profiter de toutes les fonctionnalités de Clémence.</p>
