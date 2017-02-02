@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4665ccc-5502-45bc-b592-c2671686baaf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Accueil/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Accueil/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Profile/edit.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Profile/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Profile/show_content.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Profile/show_content.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/delete.html.twig" afterPath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/delete.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/my_projects.html.twig" afterPath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/my_projects.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/view_project.html.twig" afterPath="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/view_project.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/bootstrap.css" afterPath="$PROJECT_DIR$/web/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,36 +41,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show_content.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Profile/show_content.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view_project.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/view_project.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1138">
-              <caret line="78" column="14" lean-forward="false" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/bootstrap.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="2894" column="23" lean-forward="false" selection-start-line="2894" selection-start-column="23" selection-end-line="2894" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -89,6 +49,16 @@
               <folding>
                 <element signature="n#style#0;n#aside#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/Accueil/show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="146" column="0" lean-forward="true" selection-start-line="146" selection-start-column="0" selection-end-line="160" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my_projects.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="my_projects.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/my_projects.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+            <state relative-caret-position="579">
+              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
                 <element signature="e#12#26#0#Twig" expanded="true" />
               </folding>
@@ -198,9 +168,9 @@
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/delete.html.twig" />
         <option value="$PROJECT_DIR$/web/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/my_projects.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Profile/show_content.html.twig" />
         <option value="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/view_project.html.twig" />
+        <option value="$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/my_projects.html.twig" />
       </list>
     </option>
   </component>
@@ -1119,12 +1089,12 @@
       <workItem from="1485868969989" duration="5283000" />
       <workItem from="1485952969495" duration="9090000" />
       <workItem from="1485986636439" duration="618000" />
-      <workItem from="1486004070799" duration="7926000" />
+      <workItem from="1486004070799" duration="8245000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79265000" />
+    <option name="totallyTimeSpent" value="79584000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1136,7 +1106,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1936" height="1066" extended-state="7" />
+    <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20364584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1427,17 +1397,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/Accueil/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="148" column="129" lean-forward="true" selection-start-line="148" selection-start-column="4" selection-end-line="148" selection-end-column="129" />
-          <folding>
-            <element signature="e#9164#9254#0#HTML" expanded="true" />
-            <element signature="e#10986#11052#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Profile/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1496,16 +1455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/my_projects.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -1546,16 +1495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="148" column="0" lean-forward="true" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#aside#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Resources/views/OffreDePret/offreDePret.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1579,6 +1518,34 @@
         <state relative-caret-position="1138">
           <caret line="78" column="14" lean-forward="false" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="148" column="0" lean-forward="true" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#aside#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Accueil/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="146" column="0" lean-forward="true" selection-start-line="146" selection-start-column="0" selection-end-line="160" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectBundle/Resources/views/Project/my_projects.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
